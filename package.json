@@ -1,4 +1,34 @@
 {
- "name": "@backlight-dev/aodocs.aodocs-ds",
- "version": "0.0.0"
+  "name": "@backlight-dev/aodocs.aodocs-design-system",
+  "version": "0.1.7",
+  "dependencies": {
+    "lit": "latest",
+    "@material/mwc-base": "latest",
+    "@material/mwc-checkbox": "latest",
+    "@material/mwc-fab": "latest",
+    "@material/mwc-icon-button-toggle": "latest",
+    "@material/mwc-icon-button": "latest",
+    "@material/mwc-icon": "latest",
+    "@material/mwc-radio": "latest",
+    "@material/mwc-switch": "latest",
+    "@material/mwc-textarea": "latest",
+    "@material/mwc-textfield": "latest",
+    "@material/mwc-button": "latest",
+    "@material/mwc-linear-progress": "latest",
+    "@material/mwc-top-app-bar": "latest",
+    "@material/mwc-drawer": "latest",
+    "@material/mwc-tab": "latest",
+    "@material/mwc-tab-bar": "latest",
+    "@material/mwc-top-app-bar-fixed": "latest",
+    "@material/mwc-circular-progress-four-color": "latest",
+    "@material/mwc-circular-progress": "latest",
+    "@material/mwc-dialog": "latest",
+    "@material/mwc-select": "latest",
+    "@material/mwc-menu": "latest",
+    "@material/mwc-ripple": "latest",
+    "@material/mwc-slider": "latest",
+    "@material/mwc-snackbar": "latest",
+    "@material/mwc-formfield": "latest",
+    "@material/mwc-list": "latest"
+  }
 }
