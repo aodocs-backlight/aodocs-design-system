@@ -1,9 +1,10 @@
 import {LitElement, css, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import '@aodocs/select';
+import {AodocsService} from 'service_aodocs';
 
 @customElement('domain-picker')
-export class SimpleGreeting extends LitElement {
+export class DomainPicker extends LitElement {
     // Define scoped styles right with your component, in plain CSS
     static styles = css`
     :host {
@@ -11,21 +12,31 @@ export class SimpleGreeting extends LitElement {
     }
   `;
 
-    // Declare reactive properties
+    private domains: string[];
+    private service: AodocsService;
+
     @property()
-    name?: string = 'World';
+    token: string;
+
+    @property()
+    apiUrl?: string;
+  
+    public async connectedCallback(): Promise<void> {
+      super.connectedCallback();
+      const service = new AodocsService(this.apiUrl);
+      this.domains = await service.list('user/v1/me', this.token);
+      console.log('DOMAINS: ', this.domains);
+    }
 
     // Render the UI as a function of component state
-    render() {
-        return html`<p>Hello, ${this.name}!</p>
-                    <br>
-        <h2>Filled</h2>
-        <mwc-select label="filled" id="filled">
+    public render() {
+        return html`<mwc-select label="Domains">
             <mwc-list-item></mwc-list-item>
-            <mwc-list-item value="1">Option 1</mwc-list-item>
-            <mwc-list-item value="2">Option 2</mwc-list-item>
-            <mwc-list-item value="3">Option 3</mwc-list-item>
-        </mwc-select>
-        <div>Value: <span id="filledValue"></span></div>`;
+            ${this._renderOptions()}
+        </mwc-select>`;
     }
+
+    private _renderOptions(): any[] {
+      return this.domains?.map((domain, i) => html`<mwc-list-item value="${i}">${domain}</mwc-list-item>`) ?? [];
+    } 
 }

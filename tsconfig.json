@@ -108,6 +108,9 @@
       ],
       "@aodocs/domain-picker/*": [
         "./molecule_domain-picker/*"
+      ],
+      "@aodocs/aodocs-service/*": [
+        "./service_aodocs/"
       ]
     }
   }

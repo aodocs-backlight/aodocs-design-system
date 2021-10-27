@@ -31,6 +31,15 @@
     []
    ],
    [
+    "services",
+    [
+     "service_base",
+     "service_aodocs",
+     "service_base",
+     "service_aodocs"
+    ]
+   ],
+   [
     "docs",
     [
      "shared"
