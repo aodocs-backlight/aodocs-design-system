@@ -1,4 +1,4 @@
-import '@aodocs/test';
+import '@aodocs/domain-picker';
 
 import '../../shared/doc/demo-header';
 

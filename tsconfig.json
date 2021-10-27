@@ -105,6 +105,9 @@
       ],
       "@aodocs/top-app-bar-fixed/*": [
         "./top-app-bar-fixed/*"
+      ],
+      "@aodocs/domain-picker/*": [
+        "./molecule_domain-picker/*"
       ]
     }
   }
