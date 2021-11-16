@@ -90,8 +90,5 @@
         ]
       ]
     ]
-  },
-  "dependencies": {
-    "autoInstall": true
   }
 }
