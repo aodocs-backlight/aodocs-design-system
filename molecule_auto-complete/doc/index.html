@@ -62,6 +62,12 @@ limitations under the License.
       max-width: 100px
     }
 
+    .divider {
+      margin: 30px auto;
+      width: 70%;
+      justify-content: center
+    }
+
     .demo-group-spaced>*,
     [fullwidth] {
       margin-top: 8px;
@@ -71,7 +77,15 @@ limitations under the License.
 
 <body class="unresolved">
   <demo-header component="Textfield" package="textfield"></demo-header>
-  <aodocs-auto-complete id="my-auto-complete" minChar="4" class="medium">
+  <h2>Auto complete with text list</h2>
+  <p>String value selected: <span id="stringValue"></span></p>
+  <aodocs-auto-complete id="my-auto-complete-string" label="Auto Complete String" minChar="4" class="medium">
+  </aodocs-auto-complete>
+  <hr class="divider">
+  <h2>Auto complete with objects list</h2>
+  <p>Object value selected: <span id="objectValue"></span></p>
+  <aodocs-auto-complete id="my-auto-complete-object" label="Auto Complete Object" displayName="name" returnObject="true"
+    minChar="4" class="medium">
   </aodocs-auto-complete>
 </body>
 

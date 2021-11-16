@@ -23,8 +23,17 @@ export class AutoComplete extends LitElement {
     }
     `;
 
-    @property({type: Array})
-    public values = [];
+    @property({type: Number})
+    private minChar = 3;
+
+    @property({type: String})
+    public label = "Auto Complete Field";
+
+    @property({type: String})
+    private displayName;
+
+    @property({type: String})
+    public placeholder = "Start typing";
 
     @property({type: Boolean})
     private returnObject = false;
@@ -32,17 +41,14 @@ export class AutoComplete extends LitElement {
     @property({type: String})
     private key = 'id';
 
-    @property({type: Number})
-    private minChar = 3;
-
-    @property({type: String})
-    private displayName;
-
     @property({type: Boolean})
     private displayList = false;
 
+    @property({type: Array})
+    public values: Nested[] | string[] = [];
+
     @property({type: String})
-    value = null;
+    value = undefined;
 
     @property({type: String})
     private helperText = '';
@@ -52,6 +58,8 @@ export class AutoComplete extends LitElement {
 
     private y = 0;
     private loading = false;
+    private timer: number = undefined;
+    private readonly DEBOUNCE_TIME = 1000;
 
     constructor() {
       super();
@@ -68,11 +76,12 @@ export class AutoComplete extends LitElement {
     public render() {
         return html`
               <mwc-textfield
-                required="${true}"
                 helper="${this.helperText}"
                 class="full-width"
                 id="textfield"
-                label="Standard"
+                label="${this.label}"
+                placeholder="${this.placeholder}"
+                value="${this.value}"
                 @input=${this.onValueChanged}
                 @click=${this.displayListIfNotEmpty}
                 >
@@ -109,18 +118,22 @@ export class AutoComplete extends LitElement {
     }
 
     private async onValueChanged(event: any): Promise<void> {
+      this.loading = true;
+      clearTimeout(this.timer);
       if (!!this.minChar && event.target.value.length < this.minChar) {
         this.values = [];
         this.displayList = false;
+        this.loading = false;
         this.helperText = this.minChar > 0 ? `At least ${this.minChar} characters` : undefined;
       } else {
-        this.loading = true;
         this.helperText = undefined;
         const customEvent = new CustomEvent('autoCompleteValueChanged', {
             detail: event.target.value
         });
-        this.dispatchEvent(customEvent);
-        this.displayList = true;
+        this.timer = setTimeout(() => {
+          this.dispatchEvent(customEvent);
+          this.displayList = true;
+        }, this.DEBOUNCE_TIME) 
       }
     }
 
@@ -148,11 +161,20 @@ export class AutoComplete extends LitElement {
     }
 
     private _stringListItems(items: string[]): TemplateResult[] {
-      return items.map(item => html`<mwc-list-item value="${item}">${item}</mwc-list-item>`);
+      return items.map(item => html`<mwc-list-item value="${item}" @click=${() => this._setSelectedValue(item)}>${item}</mwc-list-item>`);
     }
 
     private _objectListItems(items: Nested[]): TemplateResult[] {
-      return items.map(item => html`<mwc-list-item value="${item[this.key]}">${item[this.displayName]}</mwc-list-item>`);
+      return items.map(item => html`<mwc-list-item value="${item[this.key]}" @click=${() => this._setSelectedValue(item)}>${item[this.displayName]}</mwc-list-item>`);
+    }
+
+    private _setSelectedValue(item: string | Nested) {
+      this.value = this.returnObject ? item[this.displayName] : item;
+      const customEvent = new CustomEvent('autoCompleteValueSelected', {
+            detail: item
+        });
+        this.dispatchEvent(customEvent);
+        this.displayList = false;
     }
 
     private _checkReturnObjectRequirements() {
