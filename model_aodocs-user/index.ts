@@ -1,1 +1,1 @@
-export {AodocsUserModel} from './src';
+export * from './src';
