@@ -1,1 +1,1 @@
-export {Nested} from './object.model';
+export * from './object.model';
