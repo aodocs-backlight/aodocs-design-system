@@ -11,7 +11,6 @@ export abstract class BaseService {
   public async get<T>(path: string, token: string): Promise<T> {
     const response = await fetch(this.apiUrl + path, this.getOptions(token, 'GET'));
     const get = await response.json();
-    console.log('list: ', get)
     return get ?? {};
     // return Promise.resolve(['TOTO', 'TITI', 'TATA']);
   }
