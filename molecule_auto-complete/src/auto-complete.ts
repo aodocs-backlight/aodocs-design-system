@@ -1,10 +1,10 @@
 import {LitElement, css, html, TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import '@aodocs/textfield';
-import '@aodocs/linear-progress';
-import '@aodocs/list';
+import '../../textfield';
+import '../../atom_linear-progress';
+import '../../list';
 import '@material/mwc-elevation-overlay/mwc-elevation-overlay.css';
-import '@aodocs/menu';
+import '../../menu';
 import {Nested} from '../../model_nested';
 
 @customElement('aodocs-auto-complete')
