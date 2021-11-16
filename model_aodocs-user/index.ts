@@ -1,0 +1,1 @@
+export {AodocsUserModel} from './src';

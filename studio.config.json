@@ -10,10 +10,52 @@
         ]
       ],
       [
-        "components",
+        "atoms",
         [
-          "base",
-          "button",
+          "atom_base",
+          "atom_button",
+          "atom_linear-progress"
+        ]
+      ],
+      [
+        "molecules",
+        [
+          "molecule_domain-picker",
+          "molecule_auto-complete"
+        ]
+      ],
+      [
+        "organisms",
+        []
+      ],
+      [
+        "templates",
+        []
+      ],
+      [
+        "services",
+        [
+          "service_base",
+          "service_aodocs"
+        ]
+      ],
+      [
+        "models",
+        [
+          "aodocs_user",
+          "model_aodocs-user",
+          "model_nested"
+        ]
+      ],
+      [
+        "docs",
+        [
+          "shared"
+        ]
+      ],
+      [
+        "zzz_save_atoms",
+        [
           "checkbox",
           "circular-progress",
           "circular-progress-four-color",
@@ -27,7 +69,6 @@
           "icon-button",
           "icon-button-toggle",
           "line-ripple",
-          "linear-progress",
           "list",
           "menu",
           "notched-outline",
@@ -46,12 +87,6 @@
           "top-app-bar",
           "top-app-bar-fixed",
           "tabs"
-        ]
-      ],
-      [
-        "docs",
-        [
-          "shared"
         ]
       ]
     ]
