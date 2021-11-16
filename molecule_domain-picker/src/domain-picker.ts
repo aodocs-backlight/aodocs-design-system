@@ -1,7 +1,9 @@
 import {LitElement, css, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import '@aodocs/select';
-import {AodocsService} from 'service_aodocs';
+import '@aodocs/auto-complete';
+import {AutoComplete} from '../../molecule_auto-complete';
+import {AodocsService} from '../../service_aodocs';
 
 @customElement('domain-picker')
 export class DomainPicker extends LitElement {
@@ -12,31 +14,51 @@ export class DomainPicker extends LitElement {
     }
   `;
 
-    private domains: string[];
     private service: AodocsService;
+
+    @property({type: Boolean})
+    private dry: boolean = false;
 
     @property()
     token: string;
 
     @property()
     apiUrl?: string;
+
+    private _autoCompleteEl: AutoComplete;
   
-    public async connectedCallback(): Promise<void> {
-      super.connectedCallback();
-      const service = new AodocsService(this.apiUrl);
-      this.domains = await service.list('user/v1/me', this.token);
-      console.log('DOMAINS: ', this.domains);
+    public firstUpdated(): void {
+      this._autoCompleteEl = <AutoComplete>this.shadowRoot.querySelector('aodocs-auto-complete');
+      this.shadowRoot.querySelector('aodocs-auto-complete').addEventListener('autoCompleteValueChanged', this._onAutoCompleteChanged.bind(this))
+    }
+
+    public async update(changes): Promise<void> {
+      super.update(changes);
+      if (!this.dry) {
+        const service = new AodocsService(this.apiUrl);
+        const user = await service.getUser(this.token);
+        this._autoCompleteEl.values = user.availableDomains;
+      }
     }
 
     // Render the UI as a function of component state
     public render() {
-        return html`<mwc-select label="Domains">
-            <mwc-list-item></mwc-list-item>
-            ${this._renderOptions()}
-        </mwc-select>`;
+        return html`<aodocs-auto-complete minChar="5"></aodocs-auto-complete>`;
     }
 
-    private _renderOptions(): any[] {
-      return this.domains?.map((domain, i) => html`<mwc-list-item value="${i}">${domain}</mwc-list-item>`) ?? [];
+    private async _onAutoCompleteChanged(event: Event): Promise<void> {
+      if (!this.dry) {
+        const service = new AodocsService(this.apiUrl);
+        const user = await service.getUser(this.token);
+        this._autoCompleteEl.values = user.availableDomains?.filter(domain => domain.includes(event.detail)) ?? undefined;
+      } else {
+        const n = Math.floor(Math.random() * 10) + 1;
+        const values = [];
+        for (let i = 0; i <= n; i++) {
+          values.push(event.detail + '_' + (Math.random() + 1).toString(36).substring(2))
+        }
+
+        this._autoCompleteEl.values = values;
+      }
     } 
 }

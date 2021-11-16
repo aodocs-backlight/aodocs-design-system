@@ -1,29 +1,14 @@
+import {BaseService} from '../../service_base';
+import {AodocsUserModel} from '../../model_aodocs-user';
+
 type HttpMethod = 'GET';
 
-export class AodocsService {
-  private url: string;
-  private options: RequestInit;
-
-  constructor(
-    private apiUrl: string,
-    ) {
+export class AodocsService extends BaseService {
+  constructor(apiUrl: string) {
+      super(apiUrl);
     }
 
-  public async list(path: string, token: string): Promise<any[]> {
-    // const response = await fetch(this.url, this.getOptions(token, 'GET'));
-    // const list = await response.json();
-    // return list ?? [];
-    return Promise.resolve(['TOTO', 'TITI', 'TATA']);
-  }
-
-  private getOptions(token: string, method: HttpMethod): RequestInit {
-    return <RequestInit>{
-                method: method,
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token,
-                }
-            }
-  }
+    public async getUser(token: string): Promise<AodocsUserModel> {
+      return await this.get('user/v1/me', token);
+    } 
 }
