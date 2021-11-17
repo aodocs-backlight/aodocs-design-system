@@ -30,7 +30,7 @@ export class AutoComplete extends LitElement {
     public label = "Auto Complete Field";
 
     @property({type: String})
-    private displayName;
+    private displayName: string;
 
     @property({type: String})
     public placeholder = "Start typing";
@@ -44,8 +44,21 @@ export class AutoComplete extends LitElement {
     @property({type: Boolean})
     private displayList = false;
 
-    @property({type: Array})
-    public values: Nested[] | string[] = [];
+    @property({
+      type: Array,
+      converter(value) {
+        console.log('theProp\'s converter.');
+        console.log('Processing:', value, typeof(value));
+
+        return value?.split(',') ?? [];
+      },
+      hasChanged(newVal: string, oldVal: string) {
+        console.log('NEW: ', newVal);
+        console.log('OLD: ', oldVal);
+        return true;
+      }
+    })
+    public values: string[] | Nested[] | null;
 
     @property({type: String})
     value = undefined;

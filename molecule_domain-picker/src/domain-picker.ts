@@ -1,7 +1,6 @@
 import {LitElement, css, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import '@aodocs/select';
-import '@aodocs/auto-complete';
+import '../../molecule_auto-complete';
 import {AutoComplete} from '../../molecule_auto-complete';
 import {AodocsService} from '../../service_aodocs';
 
@@ -25,6 +24,9 @@ export class DomainPicker extends LitElement {
     @property()
     apiUrl?: string;
 
+    @property()
+    public domains: string[] = [];
+
     private _autoCompleteEl: AutoComplete;
   
     public firstUpdated(): void {
@@ -43,14 +45,14 @@ export class DomainPicker extends LitElement {
 
     // Render the UI as a function of component state
     public render() {
-        return html`<aodocs-auto-complete minChar="5"></aodocs-auto-complete>`;
+        return html`<aodocs-auto-complete minChar="5" values="${this.domains}"></aodocs-auto-complete>`;
     }
 
-    private async _onAutoCompleteChanged(event: Event): Promise<void> {
+    private async _onAutoCompleteChanged(event: MouseEvent): Promise<void> {
       if (!this.dry) {
         const service = new AodocsService(this.apiUrl);
         const user = await service.getUser(this.token);
-        this._autoCompleteEl.values = user.availableDomains?.filter(domain => domain.includes(event.detail)) ?? undefined;
+        this._autoCompleteEl.values = user.availableDomains?.filter(domain => domain.includes(event.detail.toString())) ?? undefined;
       } else {
         const n = Math.floor(Math.random() * 10) + 1;
         const values = [];
@@ -58,7 +60,8 @@ export class DomainPicker extends LitElement {
           values.push(event.detail + '_' + (Math.random() + 1).toString(36).substring(2))
         }
 
-        this._autoCompleteEl.values = values;
+        // this._autoCompleteEl.values = values;
+        this.domains = values;
       }
     } 
 }
