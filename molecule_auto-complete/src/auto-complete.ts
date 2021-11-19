@@ -3,7 +3,6 @@ import {customElement, property, state} from 'lit/decorators.js';
 import '../../textfield';
 import '../../atom_linear-progress';
 import '../../list';
-import '@material/mwc-elevation-overlay/mwc-elevation-overlay.css';
 import '../../menu';
 import {Nested} from '../../model_nested';
 import '../../colors';
