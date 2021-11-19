@@ -28,9 +28,6 @@
       "@aodocs/drawer/*": [
         "./drawer/*"
       ],
-      "@aodocs/elevation-overlay/*": [
-        "./elevation-overlay/*"
-      ],
       "@aodocs/fab/*": [
         "./fab/*"
       ],
