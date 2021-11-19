@@ -13,4 +13,7 @@
   --mdc-theme-on-secondary: #ffffff;
 	/* Text and icons on top of a theme surface color background. */
   --mdc-theme-on-surface:	 #000000;
+
+  /* White */
+  --mdc-theme-white:	 #ffffff;
 }

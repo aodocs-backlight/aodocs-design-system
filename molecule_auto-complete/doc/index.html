@@ -79,7 +79,7 @@ limitations under the License.
   <demo-header component="Textfield" package="textfield"></demo-header>
   <h2>Auto complete with text list</h2>
   <p>String value selected: <span id="stringValue"></span></p>
-  <aodocs-auto-complete id="my-auto-complete-string" label="Auto Complete String" minChar="4" class="medium">
+  <aodocs-auto-complete id="my-auto-complete-string" label="Auto Complete String" class="medium">
   </aodocs-auto-complete>
   <hr class="divider">
   <h2>Auto complete with objects list</h2>
@@ -87,6 +87,15 @@ limitations under the License.
   <aodocs-auto-complete id="my-auto-complete-object" label="Auto Complete Object" displayName="name" returnObject="true"
     minChar="4" class="medium">
   </aodocs-auto-complete>
+  <hr class="divider">
+  <h2>Auto complete with no data</h2>
+  <aodocs-auto-complete id="my-auto-complete-no-data" label="Auto Complete No Data" minChar="" class="medium">
+  </aodocs-auto-complete>
+  <hr class="divider">
+  <h2>Auto complete with with loader</h2>
+  <aodocs-auto-complete id="my-auto-complete-loading" label="Auto Complete Loading" class="medium" loading>
+  </aodocs-auto-complete>
+  <hr class="divider">
 </body>
 
 </html>
