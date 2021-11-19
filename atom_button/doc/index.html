@@ -16,12 +16,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <html lang="en">
+
 <head>
   <title>MWC Button Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style"
+    type="text/css">
   <script type="module" src="./index.js"></script>
   <script nomodule src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
   <script nomodule src="index.es5.js"></script>
@@ -39,6 +41,7 @@ limitations under the License.
     }
   </style>
 </head>
+
 <body class="unresolved">
   <demo-header component="Button" package="button"></demo-header>
 
@@ -96,12 +99,12 @@ limitations under the License.
 
     <h2>Styling</h2>
     <style data-pre="main-colors">
-.main-colors {
-  --mdc-theme-primary: darkgreen;
-  --mdc-theme-on-primary: aqua;
-  --mdc-button-disabled-fill-color: darkseagreen;
-  --mdc-button-disabled-ink-color: aliceblue;
-}
+      .main-colors {
+        --mdc-theme-primary: darkgreen;
+        --mdc-theme-on-primary: aqua;
+        --mdc-button-disabled-fill-color: darkseagreen;
+        --mdc-button-disabled-ink-color: aliceblue;
+      }
     </style>
     <pre id="main-colors"></pre>
     <div class="demo-group wrap main-colors">
@@ -114,10 +117,10 @@ limitations under the License.
     </div>
 
     <style data-pre="text">
-.text {
-  --mdc-typography-button-text-transform: lowercase;
-  --mdc-typography-button-letter-spacing: 4px;
-}
+      .text {
+        --mdc-typography-button-text-transform: lowercase;
+        --mdc-typography-button-letter-spacing: 4px;
+      }
     </style>
     <pre id="text"></pre>
     <div class="demo-group wrap text">
@@ -128,9 +131,9 @@ limitations under the License.
     </div>
 
     <style data-pre="horizontal-padding">
-.horizontal-padding {
-  --mdc-button-horizontal-padding: 50px;
-}
+      .horizontal-padding {
+        --mdc-button-horizontal-padding: 50px;
+      }
     </style>
     <pre id="horizontal-padding"></pre>
     <div class="demo-group wrap horizontal-padding">
@@ -141,24 +144,24 @@ limitations under the License.
     </div>
 
     <style data-pre="outline">
-.outline .themed {
-  --mdc-theme-primary: royalblue;
-  --mdc-button-disabled-ink-color: powderblue;
-}
+      .outline .themed {
+        --mdc-theme-primary: royalblue;
+        --mdc-button-disabled-ink-color: powderblue;
+      }
 
-.outline .outline-different {
-  --mdc-button-outline-color: darkgreen;
-  --mdc-button-disabled-outline-color: palegreen;
-  --mdc-button-disabled-ink-color: plum;
-}
+      .outline .outline-different {
+        --mdc-button-outline-color: darkgreen;
+        --mdc-button-disabled-outline-color: palegreen;
+        --mdc-button-disabled-ink-color: plum;
+      }
 
-.outline .width {
-  --mdc-button-outline-width: 5px;
-}
+      .outline .width {
+        --mdc-button-outline-width: 5px;
+      }
     </style>
     <pre id="outline"></pre>
     <div class="demo-group wrap outline">
-      <mwc-button outlined class="themed" icon="code" label="themed"></mwc-button>
+      <mwc-button outlined class="themed" color="primary" icon="code" label="themed"></mwc-button>
       <mwc-button outlined class="themed" disabled icon="code" label="themed"></mwc-button>
       <mwc-button outlined class="outline-different" icon="code" label="outline-different"></mwc-button>
       <mwc-button outlined class="outline-different" disabled icon="code" label="outline-different"></mwc-button>
@@ -167,4 +170,5 @@ limitations under the License.
     </div>
   </main>
 </body>
+
 </html>

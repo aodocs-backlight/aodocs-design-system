@@ -1,78 +1,82 @@
 import {LitElement, css, html, TemplateResult} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {customElement, property, state} from 'lit/decorators.js';
 import '../../textfield';
 import '../../atom_linear-progress';
 import '../../list';
 import '@material/mwc-elevation-overlay/mwc-elevation-overlay.css';
 import '../../menu';
 import {Nested} from '../../model_nested';
+import '../../colors';
+import {absolute, zIndexMixin, fullWidth} from '../../style_positioning';
+import {color, bgcColorMixin} from '../../style_colors';
 
 @customElement('aodocs-auto-complete')
 export class AutoComplete extends LitElement {
     // Define scoped styles right with your component, in plain CSS
-    static styles = css`
+    static styles = [css`
     :host {
-      color: blue;
+      color: var(--mdc-theme-primary);
     }
     .elevation {
       box-shadow:  2px 4px 7px -3px #ccc;
     }
 
-    .full-width {
-      width: 100%;
-    }
-    `;
+    {...colors}
+    `, absolute, zIndexMixin(1000), bgcColorMixin(color.WHITE), fullWidth];
+
+    private readonly DEBOUNCE_TIME: number = 1;
+    private readonly DEBOUNCE_TIME_CONVERTER_MS: number = 1000;
+
+    @property({type: Boolean})
+    public loading: boolean = false;
+
+    @property({type: Boolean})
+    public disabled: boolean = false;
+
+    @property({type: String})
+    public noData = 'No data available';
+
+    /** Debounce time in second */
+    @property({type: Number})
+    public debounce = this.DEBOUNCE_TIME;
 
     @property({type: Number})
-    private minChar = 3;
+    public minChar = null;
 
     @property({type: String})
     public label = "Auto Complete Field";
 
     @property({type: String})
-    private displayName: string;
+    public displayName: string;
 
     @property({type: String})
     public placeholder = "Start typing";
 
     @property({type: Boolean})
-    private returnObject = false;
+    public returnObject = false;
 
     @property({type: String})
-    private key = 'id';
+    public key = 'id';
 
     @property({type: Boolean})
-    private displayList = false;
+    public displayList = false;
 
-    @property({
-      type: Array,
-      converter(value) {
-        console.log('theProp\'s converter.');
-        console.log('Processing:', value, typeof(value));
-
-        return value?.split(',') ?? [];
-      },
-      hasChanged(newVal: string, oldVal: string) {
-        console.log('NEW: ', newVal);
-        console.log('OLD: ', oldVal);
-        return true;
-      }
-    })
-    public values: string[] | Nested[] | null;
+    @property({type: Array})
+    public values: string[] | Nested[] | null = null;
 
     @property({type: String})
-    value = undefined;
+    public value = undefined;
 
     @property({type: String})
-    private helperText = '';
+    public helperText = '';
 
-    @property()
-    private items: TemplateResult = html``;
+    @state()
+    private _hideItems: boolean = true;
 
-    private y = 0;
-    private loading = false;
+    @state()
+    private _search: string = undefined;
+
     private timer: number = undefined;
-    private readonly DEBOUNCE_TIME = 1000;
 
     constructor() {
       super();
@@ -88,19 +92,29 @@ export class AutoComplete extends LitElement {
     // Render the UI as a function of component state
     public render() {
         return html`
+            <div style="position: relative">
               <mwc-textfield
                 helper="${this.helperText}"
                 class="full-width"
                 id="textfield"
                 label="${this.label}"
+                ?disabled="${this.disabled}"
                 placeholder="${this.placeholder}"
                 value="${this.value}"
-                @input=${this.onValueChanged}
-                @click=${this.displayListIfNotEmpty}
+                @input=${this._onValueChanged}
+                @click=${this._displayListIfNotNullOnClick}
                 >
               </mwc-textfield>
               ${this.dislayLoader()}
-              ${this._displayAutoCompleteList()}`;
+              ${this._displayAutoCompleteList()}
+            </div>
+            `;
+    }
+
+    public displayListIfNotNull(): void {
+      if(!!this.values && this._minLengthReached) {
+        this.displayList = true;
+      }
     }
 
     public updated(): void {
@@ -108,16 +122,17 @@ export class AutoComplete extends LitElement {
     }
 
     public dislayLoader(): TemplateResult {
-      if (this.loading) {
+      if (this.loading && this._minLengthReached) {
         return html`<mwc-linear-progress class="full-width" indeterminate></mwc-linear-progress>`;
       }
 
       return html``;
     }
 
-    public displayListIfNotEmpty(): void {
-      if (this.values?.length > 0) {
-        this.displayList = true;
+    private _displayListIfNotNullOnClick(event: PointerEvent): void {
+      if (!this.disabled) {
+        this._hideItems = false;
+        this.displayListIfNotNull();
       }
     }
 
@@ -130,64 +145,67 @@ export class AutoComplete extends LitElement {
       }
     }
 
-    private async onValueChanged(event: any): Promise<void> {
-      this.loading = true;
+    private async _onValueChanged(event: any): Promise<void> {
       clearTimeout(this.timer);
-      if (!!this.minChar && event.target.value.length < this.minChar) {
-        this.values = [];
-        this.displayList = false;
-        this.loading = false;
+      this._search = event.target.value;
+      if (!this._minLengthReached) {
         this.helperText = this.minChar > 0 ? `At least ${this.minChar} characters` : undefined;
       } else {
         this.helperText = undefined;
+        this._handleFilterValues(this._search);
+      }
+    }
+    private _handleFilterValues(_search: string): void {
+      if (this.returnObject) {
         const customEvent = new CustomEvent('autoCompleteValueChanged', {
-            detail: event.target.value
+            detail: this._search
         });
         this.timer = setTimeout(() => {
           this.dispatchEvent(customEvent);
-          this.displayList = true;
-        }, this.DEBOUNCE_TIME) 
+        }, this._debounce) 
       }
     }
 
-
     private _displayAutoCompleteList(): TemplateResult {
-      this.loading = false;
-      if (!this.displayList || !this.values) {
+      this.displayListIfNotNull();
+      if (!this._canDisplayItemsList) {
         return html``;
       }
       return html`
-        <mwc-list activatable id="activatable" class="elevation" @click>
+        <mwc-list activatable id="activatable" class="elevation absolute bgc--white z-index-1000 full-width" @click style="width: 100%">
           ${this._listItems(this.values)}
         </mwc-list>
       `;
     }
 
     private _listItems(items: string[] | Nested[]): TemplateResult[] {
-      if (!items || items.length <= 0) {
-        html`No value found`;
+      if (!this._canDisplayItemsList) {
+        return [html``];
+      } else if (!items || items.length <= 0) {
+        return [html`<mwc-list-item><h4>${this.noData}</h4></mwc-list-item>`];
       } else if (this.returnObject) {
         this._checkReturnObjectRequirements();
         return this._objectListItems(<Nested[]>items);
       }
-      return this._stringListItems(<string[]>items);
+      const values = (<string[]>items).filter(item => item.includes(this._search ?? ''));
+      return values?.length > 0 ? this._stringListItems(values) : [html`<mwc-list-item><h4>${this.noData}</h4></mwc-list-item>`];
     }
 
     private _stringListItems(items: string[]): TemplateResult[] {
-      return items.map(item => html`<mwc-list-item value="${item}" @click=${() => this._setSelectedValue(item)}>${item}</mwc-list-item>`);
+      return items?.map(item => html`<mwc-list-item value="${item}" @click=${() => this._setSelectedValue(item)}>${item}</mwc-list-item>`);
     }
 
     private _objectListItems(items: Nested[]): TemplateResult[] {
-      return items.map(item => html`<mwc-list-item value="${item[this.key]}" @click=${() => this._setSelectedValue(item)}>${item[this.displayName]}</mwc-list-item>`);
+      return items?.map(item => html`<mwc-list-item value="${item[this.key]}" @click=${() => this._setSelectedValue(item)}>${item[this.displayName]}</mwc-list-item>`);
     }
 
     private _setSelectedValue(item: string | Nested) {
       this.value = this.returnObject ? item[this.displayName] : item;
       const customEvent = new CustomEvent('autoCompleteValueSelected', {
             detail: item
-        });
-        this.dispatchEvent(customEvent);
-        this.displayList = false;
+      });
+      this.dispatchEvent(customEvent);
+      this._hideItems = true;
     }
 
     private _checkReturnObjectRequirements() {
@@ -197,6 +215,19 @@ export class AutoComplete extends LitElement {
     }
 
     private _hideListOnClickIfNeeded(element: Element): void {
-        this.displayList = false;
+        this._hideItems = true;
+    }
+
+    private get _minLengthReached(): boolean {
+      return !this.minChar || this._search?.length >= this.minChar;
+    }
+
+    private get _debounce(): number {
+      return this.debounce ?? this.DEBOUNCE_TIME * this.DEBOUNCE_TIME_CONVERTER_MS;
+    }
+    
+
+    private  get _canDisplayItemsList(): boolean {
+      return !this.loading && !this._hideItems && this.displayList && this._minLengthReached;
     }
 }
