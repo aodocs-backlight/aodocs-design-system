@@ -18,3 +18,15 @@ export const zIndexMixin = (value: number) => {
       z-index: ${value};
     }`;
 };
+
+export const flex = css`
+  .flex {
+    display: flex;
+  }
+`
+
+export const spaceBetween = css`
+  .justify-space-between {
+    justify-content: space-between;
+  }
+`

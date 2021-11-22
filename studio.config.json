@@ -14,7 +14,10 @@
     [
      "style_positioning",
      "style_colors",
-     "style_colors"
+     "style_colors",
+     "style_transitions",
+     "style_typography",
+     "style_spacing"
     ]
    ],
    [
@@ -29,7 +32,8 @@
     "molecules",
     [
      "molecule_domain-picker",
-     "molecule_auto-complete"
+     "molecule_auto-complete",
+     "molecule_linear-progress"
     ]
    ],
    [
