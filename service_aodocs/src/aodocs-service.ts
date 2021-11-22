@@ -10,5 +10,5 @@ export class AodocsService extends BaseService {
 
     public async getUser(token: string): Promise<AodocsUserModel> {
       return await this.get('user/v1/me', token);
-    } 
+    }
 }

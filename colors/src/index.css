@@ -14,6 +14,19 @@
 	/* Text and icons on top of a theme surface color background. */
   --mdc-theme-on-surface:	 #000000;
 
+  --aodocs-theme-success: #6FBA11;
+  --aodocs-theme-error: #F43636;
+  --aodocs-theme-warn: #ED6600;
+
+  --aodocs-theme-dark-red: #DF2C2D;
+  --aodocs-theme-dark-blue-1: #265ECA;
+
+  --aodocs-theme-light-red: #F57878;
+  --aodocs-theme-light-green: #B7DD88;
+  --aodocs-theme-light-blue: #90CCEA;
+
+  --aodocs-theme-grey-strokes: rgba(0,0,0,0.12);
+
   /* White */
   --mdc-theme-white:	 #ffffff;
 }

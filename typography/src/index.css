@@ -27,4 +27,13 @@ CSS                                         |   Custom property	Description
 --mdc-typography-<STYLE>-text-transform	    |   The text-transform for STYLE. Please see Typography styles section
 */
 :root {
+  --mdc-typography-font-family: Roboto;
+  --mdc-typography-subtitle1-font-size: 14px;
+  --mdc-typography-subtitle1-line-height: 16px;
+  --mdc-typography-subtitle1-color: rgba(0,0,0,0.54);
+
+  --mdc-typography-headline5-font-size: 18px;
+  --mdc-typography-headline5-line-height: 24px;
+  --mdc-typography-headline5-color: rgba(0,0,0,0.54);
+  --mdc-typography-headline5-font-weight: 500;
 }

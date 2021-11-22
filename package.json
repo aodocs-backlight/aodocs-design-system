@@ -29,6 +29,7 @@
     "@material/mwc-slider": "latest",
     "@material/mwc-snackbar": "latest",
     "@material/mwc-formfield": "latest",
-    "@material/mwc-list": "latest"
+    "@material/mwc-list": "latest",
+    "@material/typography": "latest"
   }
 }
