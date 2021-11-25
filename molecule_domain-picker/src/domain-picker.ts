@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import '../../colors';
 import '../../molecule_auto-complete';
@@ -9,7 +9,7 @@ import { AodocsService } from '../../service_aodocs';
 @customElement('aodocs-domain-picker')
 export class DomainPicker extends LitElement {
   @property({ type: Boolean })
-  private dry: boolean = false;
+  private dry = false;
 
   @property({ type: String })
   token: string;

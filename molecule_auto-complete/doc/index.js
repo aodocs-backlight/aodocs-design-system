@@ -29,7 +29,6 @@ addEventListener('load', function () {
 });
 
 function computeAutoCompleteStringValues() {
-  const n = Math.floor(Math.random() * 10) + 1;
   const values = [];
   for (let i = 0; i <= 30; i++) {
     values.push('random' + '_' + (Math.random() + 1).toString(36).substring(2));

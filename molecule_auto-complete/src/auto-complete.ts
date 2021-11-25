@@ -34,10 +34,10 @@ export class AutoComplete extends LitElement {
   private readonly DEBOUNCE_TIME_CONVERTER_MS: number = 1000;
 
   @property({ type: Boolean })
-  public loading: boolean = false;
+  public loading = false;
 
   @property({ type: Boolean })
-  public disabled: boolean = false;
+  public disabled = false;
 
   @property({ type: String })
   public noData = 'No data available';
@@ -77,7 +77,7 @@ export class AutoComplete extends LitElement {
   public helperText = '';
 
   @state()
-  private _hideItems: boolean = true;
+  private _hideItems = true;
 
   @state()
   private _search: string = undefined;
@@ -138,7 +138,7 @@ export class AutoComplete extends LitElement {
     return html``;
   }
 
-  private _displayListIfNotNullOnClick(event: PointerEvent): void {
+  private _displayListIfNotNullOnClick(): void {
     if (!this.disabled) {
       this._hideItems = false;
       this.displayListIfNotNull();
@@ -147,16 +147,16 @@ export class AutoComplete extends LitElement {
 
   private _applyCustomLoaderStyle(): void {
     const progress = this.shadowRoot.querySelector('mwc-linear-progress');
-    if (!!progress) {
+    if (progress) {
       const style = document.createElement('style');
       style.innerHTML = '.mdc-linear-progress { height: 0.5px !important; }';
       progress.shadowRoot.appendChild(style);
     }
   }
 
-  private async _onValueChanged(event: any): Promise<void> {
+  private async _onValueChanged(event: Event): Promise<void> {
     clearTimeout(this.timer);
-    this._search = event.target.value;
+    this._search = (event.target as HTMLInputElement).value;
     if (!this._minLengthReached) {
       this.helperText =
         this.minChar > 0 ? `At least ${this.minChar} characters` : undefined;
@@ -168,7 +168,7 @@ export class AutoComplete extends LitElement {
   private _handleFilterValues(_search: string): void {
     if (this.returnObject) {
       const customEvent = new CustomEvent('autoCompleteValueChanged', {
-        detail: this._search
+        detail: _search
       });
       this.timer = setTimeout(() => {
         this.dispatchEvent(customEvent);
@@ -264,7 +264,7 @@ export class AutoComplete extends LitElement {
     }
   }
 
-  private _hideListOnClickIfNeeded(element: Element): void {
+  private _hideListOnClickIfNeeded(): void {
     this._hideItems = true;
   }
 

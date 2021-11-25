@@ -44,6 +44,6 @@
     "typescript": "latest"
   },
   "scripts": {
-    "lint": "eslint . && prettier --config .prettierrc.json --write ."
+    "lint": "eslint . && prettier --config .prettierrc.json --check ."
   }
 }

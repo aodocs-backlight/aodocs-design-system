@@ -1,5 +1,5 @@
-import { LitElement, TemplateResult, css, html } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { LitElement, TemplateResult, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 import '../../colors';
 import '../../molecule_auto-complete';
@@ -23,22 +23,22 @@ export class LinearProgress extends LitElement {
   ];
 
   @property({ type: Boolean })
-  public displayDetails: boolean = false;
+  public displayDetails = false;
 
   @property({ type: Boolean })
-  public displayTotal: boolean = true;
+  public displayTotal = true;
 
   @property({ type: String })
-  public title: string = '';
+  public title = '';
 
   @property({ type: Number })
-  public total: number = 0;
+  public total = 0;
 
   @property({ type: String })
-  public backgroundColor: String = 'var(--aodocs-theme-grey-strokes)';
+  public backgroundColor = 'var(--aodocs-theme-grey-strokes)';
 
   @property({ type: String })
-  public width: string = '100%';
+  public width = '100%';
 
   @property({ type: String })
   public height = '10px';
