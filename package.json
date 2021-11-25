@@ -40,10 +40,19 @@
     "eslint": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "prettier": "latest",
     "typescript": "latest"
   },
   "scripts": {
-    "lint": "eslint . && prettier --config .prettierrc.json --check ."
+    "lint": "eslint . && prettier --config .prettierrc.json --check .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.(js|ts|html|css|json)": [
+      "eslint --cache --fix",
+      "prettier --config .prettierrc.json --write"
+    ]
   }
 }
