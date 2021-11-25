@@ -12,7 +12,8 @@ main {
   padding: 16px;
 }
 
-.demo-group, .demo-group-spaced {
+.demo-group,
+.demo-group-spaced {
   display: flex;
   align-items: center;
 }
@@ -25,6 +26,7 @@ main {
   justify-content: space-around;
 }
 
-.demo-group > *, .demo-group-spaced > * {
+.demo-group > *,
+.demo-group-spaced > * {
   margin: 0 8px;
 }

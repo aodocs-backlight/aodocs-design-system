@@ -1,5 +1,5 @@
-import '@aodocs/snackbar';
 import '@aodocs/button';
+import '@aodocs/snackbar';
 import '@aodocs/textfield';
 
 import '../../shared/doc/demo-header';
@@ -10,10 +10,12 @@ window.textfield.addEventListener('change', () => {
   }
 
   const newDuration = Number(window.textfield.value);
-  let snackbarLabel = `Can't send photo. Retry in ${newDuration/1000} seconds.`;
+  let snackbarLabel = `Can't send photo. Retry in ${
+    newDuration / 1000
+  } seconds.`;
 
   if (newDuration === -1) {
-    snackbarLabel = 'Can\'t  send photo. Please retry.';
+    snackbarLabel = "Can't  send photo. Please retry.";
   }
 
   window.snack.timeoutMs = newDuration;
@@ -33,25 +35,25 @@ window.textfield.validityTransform = (valueStr, validity) => {
   return validity;
 };
 
-window.snack1.onclick = function() {
+window.snack1.onclick = function () {
   window.snack.stacked = false;
   window.snack.leading = false;
   window.snack.open = true;
 };
 
-window.snack2.onclick = function() {
+window.snack2.onclick = function () {
   window.snack.stacked = false;
   window.snack.leading = true;
   // you can also use the show method
   window.snack.show();
 };
 
-window.snack3.onclick = function() {
+window.snack3.onclick = function () {
   window.snack.stacked = true;
   window.snack.leading = false;
   window.snack.open = true;
 };
 
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
 });

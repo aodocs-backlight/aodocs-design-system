@@ -1,4 +1,4 @@
-import {css, unsafeCSS} from 'lit';
+import { css, unsafeCSS } from 'lit';
 
 export const absolute = css`
   .absolute {
@@ -13,20 +13,22 @@ export const fullWidth = css`
 `;
 
 export const zIndexMixin = (value: number) => {
-    const className = `.z-index-${value}`;
-    return css`${unsafeCSS(className)} {
+  const className = `.z-index-${value}`;
+  return css`
+    ${unsafeCSS(className)} {
       z-index: ${value};
-    }`;
+    }
+  `;
 };
 
 export const flex = css`
   .flex {
     display: flex;
   }
-`
+`;
 
 export const spaceBetween = css`
   .justify-space-between {
     justify-content: space-between;
   }
-`
+`;

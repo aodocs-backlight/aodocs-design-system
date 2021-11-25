@@ -3,7 +3,7 @@ import '@aodocs/domain-picker';
 import '../../shared/doc/demo-header';
 
 let domainPickerEl = null;
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
   domainPickerEl = document.querySelector('aodocs-domain-picker');
   domainPickerEl.addEventListener('autoCompleteValueSelected', domainChanged);
@@ -12,12 +12,12 @@ addEventListener('load', function() {
   setTimeout(() => {
     domainPickerEl.disabled = false;
     domainPickerEl.loading = false;
-  }, 2000)
+  }, 2000);
 
   const n = Math.floor(Math.random() * 10) + 1;
   const values = [];
   for (let i = 0; i <= 30; i++) {
-    values.push('random' + '_' + (Math.random() + 1).toString(36).substring(2))
+    values.push('random' + '_' + (Math.random() + 1).toString(36).substring(2));
   }
   domainPickerEl.domains = values;
 });

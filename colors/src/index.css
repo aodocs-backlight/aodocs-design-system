@@ -1,32 +1,32 @@
-:root{
+:root {
   /* The theme primary color. */
-  --mdc-theme-primary	: #3e82f7;	
-	/* The theme secondary color. */
-  --mdc-theme-secondary:	 #3e82f7;
-	/* The theme surface color. */
-  --mdc-theme-surface	: #f5f5f5;
-	/* The theme background color.*/
-  --mdc-theme-background: #ededed;  
+  --mdc-theme-primary: #3e82f7;
+  /* The theme secondary color. */
+  --mdc-theme-secondary: #3e82f7;
+  /* The theme surface color. */
+  --mdc-theme-surface: #f5f5f5;
+  /* The theme background color.*/
+  --mdc-theme-background: #ededed;
   /* Text and icons on top of a theme primary color background. */
-  --mdc-theme-on-primary:	 #ffffff;
-	/* Text and icons on top of a theme secondary color background.	 */
+  --mdc-theme-on-primary: #ffffff;
+  /* Text and icons on top of a theme secondary color background.	 */
   --mdc-theme-on-secondary: #ffffff;
-	/* Text and icons on top of a theme surface color background. */
-  --mdc-theme-on-surface:	 #000000;
+  /* Text and icons on top of a theme surface color background. */
+  --mdc-theme-on-surface: #000000;
 
-  --aodocs-theme-success: #6FBA11;
-  --aodocs-theme-error: #F43636;
-  --aodocs-theme-warn: #ED6600;
+  --aodocs-theme-success: #6fba11;
+  --aodocs-theme-error: #f43636;
+  --aodocs-theme-warn: #ed6600;
 
-  --aodocs-theme-dark-red: #DF2C2D;
-  --aodocs-theme-dark-blue-1: #265ECA;
+  --aodocs-theme-dark-red: #df2c2d;
+  --aodocs-theme-dark-blue-1: #265eca;
 
-  --aodocs-theme-light-red: #F57878;
-  --aodocs-theme-light-green: #B7DD88;
-  --aodocs-theme-light-blue: #90CCEA;
+  --aodocs-theme-light-red: #f57878;
+  --aodocs-theme-light-green: #b7dd88;
+  --aodocs-theme-light-blue: #90ccea;
 
-  --aodocs-theme-grey-strokes: rgba(0,0,0,0.12);
+  --aodocs-theme-grey-strokes: rgba(0, 0, 0, 0.12);
 
   /* White */
-  --mdc-theme-white:	 #ffffff;
+  --mdc-theme-white: #ffffff;
 }

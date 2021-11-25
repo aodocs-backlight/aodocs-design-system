@@ -1,6 +1,6 @@
-import '@aodocs/top-app-bar';
-import '@aodocs/icon-button';
 import '@aodocs/button';
+import '@aodocs/icon-button';
+import '@aodocs/top-app-bar';
 
 const bar = window.bar;
 

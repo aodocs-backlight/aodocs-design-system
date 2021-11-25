@@ -3,7 +3,7 @@ import '@aodocs/icon';
 
 import '../../shared/doc/demo-header';
 
-document.querySelectorAll('style[data-pre]').forEach((e) => {
+document.querySelectorAll('style[data-pre]').forEach(e => {
   const preId = e.dataset.pre;
   const pre = document.querySelector('#' + preId);
   if (pre) {
@@ -11,6 +11,6 @@ document.querySelectorAll('style[data-pre]').forEach((e) => {
   }
 });
 
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
 });
