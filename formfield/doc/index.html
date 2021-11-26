@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
 @license
 Copyright 2018 Google Inc. All Rights Reserved.
@@ -16,57 +16,76 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <html lang="en">
-<head>
-  <title>MWC Formfield Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
-  <script type="module" src="./index.js"></script>
-  <script nomodule src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-  <script nomodule src="index.es5.js"></script>
-  <style>
-    .unresolved main {
-      opacity: 0;
-    }
-  </style>
-  <link href="../../shared/doc/shared.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
-</head>
-<body class="unresolved">
-  <demo-header component="Formfield" package="formfield"></demo-header>
+  <head>
+    <title>MWC Formfield Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      as="style"
+      type="text/css"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      as="style"
+      type="text/css"
+    />
+    <script type="module" src="./index.js"></script>
+    <script
+      nomodule
+      src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"
+    ></script>
+    <script nomodule src="index.es5.js"></script>
+    <style>
+      .unresolved main {
+        opacity: 0;
+      }
+    </style>
+    <link href="../../shared/doc/shared.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="unresolved">
+    <demo-header component="Formfield" package="formfield"></demo-header>
 
-  <main>
-    <mwc-formfield label="This is a checkbox.">
-      <mwc-checkbox></mwc-checkbox>
-    </mwc-formfield>
+    <main>
+      <mwc-formfield label="This is a checkbox.">
+        <mwc-checkbox></mwc-checkbox>
+      </mwc-formfield>
 
-    <h4>Align End</h4>
-    <mwc-formfield alignEnd label="This is a checkbox.">
-      <mwc-checkbox></mwc-checkbox>
-    </mwc-formfield>
+      <h4>Align End</h4>
+      <mwc-formfield alignEnd label="This is a checkbox.">
+        <mwc-checkbox></mwc-checkbox>
+      </mwc-formfield>
 
-    <h4>Native Element</h4>
-    <mwc-formfield alignEnd label="Enter a date.">
-      <input type="date">
-    </mwc-formfield>
+      <h4>Native Element</h4>
+      <mwc-formfield alignEnd label="Enter a date.">
+        <input type="date" />
+      </mwc-formfield>
 
-    <h4>Switch</h4>
-    <mwc-formfield label="This is a switch.">
-      <mwc-switch></mwc-switch>
-    </mwc-formfield>
+      <h4>Switch</h4>
+      <mwc-formfield label="This is a switch.">
+        <mwc-switch></mwc-switch>
+      </mwc-formfield>
 
-    <h4>Radio Button</h4>
-    <mwc-formfield label="This is a radio.">
-      <mwc-radio id="one" name="a"></mwc-radio>
-    </mwc-formfield>
-    <mwc-formfield label="This is a radio.">
-      <mwc-radio id="two" name="a" checked></mwc-radio>
-    </mwc-formfield>
-    <mwc-formfield label="This is a radio.">
-      <mwc-radio id="three" name="a"></mwc-radio>
-    </mwc-formfield>
-  </main>
-</body>
+      <h4>Radio Button</h4>
+      <mwc-formfield label="This is a radio.">
+        <mwc-radio id="one" name="a"></mwc-radio>
+      </mwc-formfield>
+      <mwc-formfield label="This is a radio.">
+        <mwc-radio id="two" name="a" checked></mwc-radio>
+      </mwc-formfield>
+      <mwc-formfield label="This is a radio.">
+        <mwc-radio id="three" name="a"></mwc-radio>
+      </mwc-formfield>
+    </main>
+  </body>
 </html>

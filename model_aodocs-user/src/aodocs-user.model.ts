@@ -3,4 +3,3 @@ export interface AodocsUserModel {
   defaultDomain: string;
   superAdmin: boolean;
 }
-

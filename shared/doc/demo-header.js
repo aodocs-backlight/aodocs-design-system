@@ -14,10 +14,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-import {LitElement, html, css} from 'lit';
-import '@aodocs/top-app-bar-fixed';
-import '@aodocs/icon-button';
+import { LitElement, css, html } from 'lit';
+
 import '@aodocs/button';
+import '@aodocs/icon-button';
+import '@aodocs/top-app-bar-fixed';
 
 class DemoHeader extends LitElement {
   static get styles() {
@@ -26,8 +27,8 @@ class DemoHeader extends LitElement {
         a {
           text-decoration: none;
         }
-        [slot="title"] {
-          font-family: "Roboto Mono", monospace;
+        [slot='title'] {
+          font-family: 'Roboto Mono', monospace;
           -webkit-font-smoothing: antialiased;
           font-size: 1.25rem;
           line-height: 2rem;
@@ -37,21 +38,22 @@ class DemoHeader extends LitElement {
           --mdc-theme-primary: white;
           --mdc-button-outline-color: white;
           color: white;
-        }`,
+        }
+      `
     ];
   }
 
   static get properties() {
     return {
-      component: {type: String},
-      package: {type: String},
+      component: { type: String },
+      package: { type: String }
     };
   }
 
   render() {
     let pkg = this.package || '';
 
-    if (pkg.length && pkg[pkg.length -1]) {
+    if (pkg.length && pkg[pkg.length - 1]) {
       pkg = pkg + '/';
     }
 
@@ -61,7 +63,10 @@ class DemoHeader extends LitElement {
           <mwc-icon-button class="white" icon="arrow_back"></mwc-icon-button>
         </a>
         <span slot="title">${this.component}</span>
-        <a href="https://github.com/material-components/material-components-web-components/tree/master/demos/${pkg}index.html" slot="actionItems">
+        <a
+          href="https://github.com/material-components/material-components-web-components/tree/master/demos/${pkg}index.html"
+          slot="actionItems"
+        >
           <mwc-button outlined label="View Source" class="white"></mwc-button>
         </a>
       </mwc-top-app-bar-fixed>

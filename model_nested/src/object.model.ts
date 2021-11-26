@@ -1,3 +1,3 @@
 export interface Nested {
-  [key: string]: any;
+  [key: string]: unknown;
 }

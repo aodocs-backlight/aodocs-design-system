@@ -1,1 +1,1 @@
-export {AodocsService} from './aodocs-service';
+export { AodocsService } from './aodocs-service';

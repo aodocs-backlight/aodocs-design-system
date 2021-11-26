@@ -1,1 +1,1 @@
-export {BaseService} from './src';
+export { BaseService } from './src';

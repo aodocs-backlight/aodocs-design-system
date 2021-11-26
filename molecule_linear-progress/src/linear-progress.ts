@@ -1,75 +1,82 @@
-import {LitElement, html, TemplateResult, css} from 'lit';
-import {customElement, property, state} from 'lit/decorators.js';
-import '../../molecule_auto-complete';
+import { LitElement, TemplateResult, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+
 import '../../colors';
+import '../../molecule_auto-complete';
+import { textColor, textColorMixin } from '../../style_colors';
+import { flex, spaceBetween } from '../../style_positioning';
+import { paddingsRem } from '../../style_spacing';
+import { smoothWidthTransition } from '../../style_transitions';
+import { typography } from '../../style_typography';
 import '../../typography';
-import {flex, spaceBetween} from '../../style_positioning';
-import {smoothWidthTransition} from '../../style_transitions';
-import {Config} from './linear-progress.model';
-import {typography} from '../../style_typography';
-import {textColorMixin, textColor} from '../../style_colors';
-import {paddingsRem} from '../../style_spacing';
+import { Config } from './linear-progress.model';
 
 @customElement('aodocs-linear-progress')
 export class LinearProgress extends LitElement {
   static styles = [
-    textColorMixin(textColor.SUBTITLE1), 
-    paddingsRem, 
-    spaceBetween, 
-    typography, 
-    smoothWidthTransition, 
+    textColorMixin(textColor.SUBTITLE1),
+    paddingsRem,
+    spaceBetween,
+    typography,
+    smoothWidthTransition,
     flex
   ];
 
-  @property({type: Boolean})
-  public displayDetails: boolean = false;
+  @property({ type: Boolean })
+  public displayDetails = false;
 
-  @property({type: Boolean})
-  public displayTotal: boolean = true;
+  @property({ type: Boolean })
+  public displayTotal = true;
 
-  @property({type: String})
-  public title: string = '';
+  @property({ type: String })
+  public title = '';
 
-  @property({type: Number})
-  public total: number = 0;
+  @property({ type: Number })
+  public total = 0;
 
-  @property({type: String})
-  public backgroundColor: String = 'var(--aodocs-theme-grey-strokes)';
+  @property({ type: String })
+  public backgroundColor = 'var(--aodocs-theme-grey-strokes)';
 
-  @property({type: String})
-  public width: string = '100%';
+  @property({ type: String })
+  public width = '100%';
 
-  @property({type: String})
+  @property({ type: String })
   public height = '10px';
 
-  @property({type: Number})
+  @property({ type: Number })
   public minWidth = '10';
 
-  @property({type: Array})
+  @property({ type: Array })
   public config: Config[] = [];
 
   protected override render(): TemplateResult {
     return html`
-    ${this._displayTitle()}
-    <div class="flex" style="height: ${this.height}; width: ${this.width};">
-      ${this._renderParts()}
-    </div>
-    ${this._displayDetails()}
+      ${this._displayTitle()}
+      <div class="flex" style="height: ${this.height}; width: ${this.width};">
+        ${this._renderParts()}
+      </div>
+      ${this._displayDetails()}
     `;
   }
 
   private _displayTitle(): TemplateResult {
-    return this.displayDetails && !!this.title ? html`
-      <p class="mdc-typography mdc-typography--subtitle1 text--subtitle1">${this.title}</p>
-    ` : html``;
+    return this.displayDetails && !!this.title
+      ? html`
+          <p class="mdc-typography mdc-typography--subtitle1 text--subtitle1">
+            ${this.title}
+          </p>
+        `
+      : html``;
   }
-  
+
   private _displayDetails(): TemplateResult {
-    return this.displayDetails ? html`
-    <div class="flex justify-space-between pr-6--rem">
-      ${this._renderDetailParts()}
-      ${this._renderDetailTotal()}
-    </div>` : html``;
+    return this.displayDetails
+      ? html`
+          <div class="flex justify-space-between pr-6--rem">
+            ${this._renderDetailParts()} ${this._renderDetailTotal()}
+          </div>
+        `
+      : html``;
   }
 
   _renderDetailParts(): TemplateResult[] {
@@ -81,19 +88,27 @@ export class LinearProgress extends LitElement {
   }
 
   private _renderDetailTotal(): TemplateResult {
-    return this.displayTotal ? html`
-      <div class="mdc-typography">
-        <p class="mdc-typography--subtitle1 text--subtitle1">Total</p>
-        <p class="mdc-typography--headline5 text--subtitle1">${this.total}</p>
-      </div>
-    ` : html``;
+    return this.displayTotal
+      ? html`
+          <div class="mdc-typography">
+            <p class="mdc-typography--subtitle1 text--subtitle1">Total</p>
+            <p class="mdc-typography--headline5 text--subtitle1">
+              ${this.total}
+            </p>
+          </div>
+        `
+      : html``;
   }
 
   private _renderDetailPart(part: Config): TemplateResult {
     return html`
       <div class="mdc-typography">
-        <p class="mdc-typography--subtitle1 text--subtitle1">${part.title ?? 'No title'}</p>
-        <p class="mdc-typography--headline5" style="color: ${part.color}">${part.value}</p>
+        <p class="mdc-typography--subtitle1 text--subtitle1">
+          ${part.title ?? 'No title'}
+        </p>
+        <p class="mdc-typography--headline5" style="color: ${part.color}">
+          ${part.value}
+        </p>
       </div>
     `;
   }
@@ -109,10 +124,14 @@ export class LinearProgress extends LitElement {
 
   private _renderPart(part: Config): TemplateResult {
     return html`
-    <div
-      class="smooth-width-transition"
-      style="height: ${this.height}; min-width: ${this.minWidth}; width: ${this._partWidth(part)}%; background-color: ${part.color};">
-    </div>`;
+      <div
+        class="smooth-width-transition"
+        style="height: ${this.height}; min-width: ${this
+          .minWidth}; width: ${this._partWidth(
+          part
+        )}%; background-color: ${part.color};"
+      ></div>
+    `;
   }
 
   private _partWidth(part: Config): number {
