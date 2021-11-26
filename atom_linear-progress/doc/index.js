@@ -1,12 +1,12 @@
-import '@aodocs/linear-progress';
 import '@aodocs/button';
+import '@aodocs/linear-progress';
 
 import '../../shared/doc/demo-header';
 
-window.toggle.onclick = function() {
+window.toggle.onclick = function () {
   window.progress1.closed = !window.progress1.closed;
 };
 
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
 });

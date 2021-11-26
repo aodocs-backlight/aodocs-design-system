@@ -1,8 +1,8 @@
-import '@aodocs/tab-bar';
 import '@aodocs/tab';
+import '@aodocs/tab-bar';
 
 import '../../shared/doc/demo-header';
 
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
 });

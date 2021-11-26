@@ -1,14 +1,16 @@
 import '@aodocs/ripple';
-import {RippleHandlers} from '@aodocs/ripple/ripple-handlers';
+import { RippleHandlers } from '@aodocs/ripple/ripple-handlers';
 
 import '../../shared/doc/demo-header';
 
-const ripples = Array.from(document.querySelectorAll('mwc-ripple:not(#customControls)'));
+const ripples = Array.from(
+  document.querySelectorAll('mwc-ripple:not(#customControls)')
+);
 
 // note: you can also use the functions directly on the ripple, but ripple
 // handlers is a useful structure for declaratively controlling ripple in lit.
 // See implementation for mwc-button-base.ts
-ripples.forEach((ripple) => {
+ripples.forEach(ripple => {
   // argument must return thenable promiselike (see @queryAsync in LitElement)
   // Best practice for first load would be to not render the mwc-ripple until it
   // is needed which is typically on user interaction.
@@ -16,7 +18,7 @@ ripples.forEach((ripple) => {
   const parent = ripple.parentNode;
   parent.addEventListener('mouseenter', rh.startHover);
   parent.addEventListener('mouseleave', rh.endHover);
-  parent.addEventListener('mousedown', (e) => {
+  parent.addEventListener('mousedown', e => {
     const onMouseUp = () => {
       window.removeEventListener('mouseup', onMouseUp);
       rh.endPress();
@@ -25,7 +27,7 @@ ripples.forEach((ripple) => {
     window.addEventListener('mouseup', onMouseUp);
     rh.startPress(e);
   });
-  parent.addEventListener('touchstart', (e) => {
+  parent.addEventListener('touchstart', e => {
     const onTouchEnd = () => {
       window.removeEventListener('touchend', onTouchEnd);
       rh.endPress();
@@ -69,7 +71,7 @@ parent.addEventListener('mouseleave', () => {
 
   rh.endHover();
 });
-parent.addEventListener('mousedown', (e) => {
+parent.addEventListener('mousedown', e => {
   const onMouseUp = () => {
     window.removeEventListener('mouseup', onMouseUp);
     rh.endPress();
@@ -80,7 +82,7 @@ parent.addEventListener('mousedown', (e) => {
     rh.startPress(e);
   }
 });
-parent.addEventListener('touchstart', (e) => {
+parent.addEventListener('touchstart', e => {
   const onTouchEnd = () => {
     window.removeEventListener('touchend', onTouchEnd);
     rh.endPress();
@@ -94,6 +96,6 @@ parent.addEventListener('touchstart', (e) => {
 parent.addEventListener('focus', rh.startFocus);
 parent.addEventListener('blur', rh.endFocus);
 
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
 });

@@ -1,13 +1,14 @@
 import '../../shared/doc/demo-header';
 import '../src/linear-progress';
 
-let linearEl = null; 
-let linearEl2 = null; 
-let linearEl3 = null; 
-let linearEl4 = null; 
+
+let linearEl = null;
+let linearEl2 = null;
+let linearEl3 = null;
+let linearEl4 = null;
 let linearEl5 = null; 
 let count = 0;
-addEventListener('load', function() {
+addEventListener('load', function () {
   document.body.classList.remove('unresolved');
   linearEl = document.querySelector('#progress1');
   linearEl2 = document.querySelector('#progress2');
@@ -38,7 +39,7 @@ addEventListener('load', function() {
       value: 768,
       title: 'Pending'
     }
-  ]
+  ];
   let config2 = [
     {
       color: 'var(--aodocs-theme-light-green)',
@@ -60,7 +61,7 @@ addEventListener('load', function() {
       value: 999,
       title: 'Pending'
     }
-  ]
+  ];
   linearEl.config = config;
   linearEl2.config = config;
   linearEl3.config = config;
@@ -70,16 +71,16 @@ addEventListener('load', function() {
   setInterval(() => {
     count++;
     if (count < 12) {
-      config[0].value =  config[0].value + 50;
-      config[1].value =  config[1].value + 2;
-      config[2].value =  config[2].value + 16;
-      config[3].value =  config[3].value - 68;
+      config[0].value = config[0].value + 50;
+      config[1].value = config[1].value + 2;
+      config[2].value = config[2].value + 16;
+      config[3].value = config[3].value - 68;
     } else {
       count = 0;
-      config[0].value =  200;
-      config[1].value =  10;
-      config[2].value =  20;
-      config[3].value =  770;
+      config[0].value = 200;
+      config[1].value = 10;
+      config[2].value = 20;
+      config[3].value = 770;
     }
     linearEl.config = [];
     linearEl.config = config;
@@ -89,5 +90,5 @@ addEventListener('load', function() {
     linearEl3.config = config;
     linearEl4.config = [];
     linearEl4.config = config;
-  }, 1000)
+  }, 1000);
 });

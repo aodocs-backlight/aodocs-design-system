@@ -1,11 +1,11 @@
-import '@aodocs/dialog';
 import '@aodocs/button';
+import '@aodocs/dialog';
 import '@aodocs/textfield';
 
 import '../../shared/doc/demo-header';
 
-addEventListener('load', function() {
- document.body.classList.remove('unresolved');
+addEventListener('load', function () {
+  document.body.classList.remove('unresolved');
 });
 
 const buttons = document.body.querySelectorAll('mwc-button[data-num]');
@@ -14,8 +14,8 @@ for (let i = 0; i < buttons.length; i++) {
   const button = buttons[i];
   const buttonNum = button.dataset.num;
 
-  const listenerFactory = (numButton) => {
-    return function() {
+  const listenerFactory = numButton => {
+    return function () {
       const dialog = document.body.querySelector('#dialog' + numButton);
       dialog.open = true;
     };
@@ -26,7 +26,7 @@ for (let i = 0; i < buttons.length; i++) {
   button.addEventListener('click', listener);
 }
 
-window.toggleActions.onclick = function() {
+window.toggleActions.onclick = function () {
   const dialog = document.body.querySelector('#dialog4');
   const hideActionSpan = document.body.querySelector('#hideActionVal');
 
@@ -38,7 +38,7 @@ window.toggleActions.onclick = function() {
 const dialog = document.querySelector('#dialog8');
 const textField = document.querySelector('#dialog8-text-field');
 const primaryButton = document.querySelector('#dialog8-primary-action-button');
-    
+
 primaryButton.addEventListener('click', () => {
   // validate, possible asynchronous such as a server response
   const isValid = textField.checkValidity();
@@ -46,6 +46,6 @@ primaryButton.addEventListener('click', () => {
     dialog.close();
     return;
   }
-  
+
   textField.reportValidity();
 });
