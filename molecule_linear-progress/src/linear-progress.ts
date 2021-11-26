@@ -43,8 +43,8 @@ export class LinearProgress extends LitElement {
   @property({ type: String })
   public height = '10px';
 
-  @property({ type: Number })
-  public minWidth = '10';
+  @property({type: String})
+  public minWidth = '10px';
 
   @property({ type: Array })
   public config: Config[] = [];

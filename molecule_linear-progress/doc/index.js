@@ -1,10 +1,12 @@
 import '../../shared/doc/demo-header';
 import '../src/linear-progress';
 
+
 let linearEl = null;
 let linearEl2 = null;
 let linearEl3 = null;
 let linearEl4 = null;
+let linearEl5 = null; 
 let count = 0;
 addEventListener('load', function () {
   document.body.classList.remove('unresolved');
@@ -12,6 +14,7 @@ addEventListener('load', function () {
   linearEl2 = document.querySelector('#progress2');
   linearEl3 = document.querySelector('#progress3');
   linearEl4 = document.querySelector('#progress4');
+  linearEl5 = document.querySelector('#progress5');
 
   linearEl2.displayTotal = false;
 
@@ -37,10 +40,33 @@ addEventListener('load', function () {
       title: 'Pending'
     }
   ];
+  let config2 = [
+    {
+      color: 'var(--aodocs-theme-light-green)',
+      value: 1,
+      title: 'Finished'
+    },
+    {
+      color: 'var(--aodocs-theme-light-red)',
+      value: 0,
+      title: 'Errors'
+    },
+    {
+      color: 'var(--aodocs-theme-light-blue)',
+      value: 0,
+      title: 'Running'
+    },
+    {
+      color: 'var(--aodocs-theme-grey-strokes)',
+      value: 999,
+      title: 'Pending'
+    }
+  ];
   linearEl.config = config;
   linearEl2.config = config;
   linearEl3.config = config;
   linearEl4.config = config;
+  linearEl5.config = config2;
 
   setInterval(() => {
     count++;
