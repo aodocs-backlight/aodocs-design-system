@@ -16,118 +16,87 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <html lang="en">
-  <head>
-    <title>MWC Textfield Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-      as="style"
-      type="text/css"
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
-      as="style"
-      type="text/css"
-    />
-    <script type="module" src="./index.js"></script>
-    <script
-      nomodule
-      src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"
-    ></script>
-    <script nomodule src="index.es5.js"></script>
-    <style>
-      .unresolved main {
-        opacity: 0;
-      }
-    </style>
-    <link href="../../shared/doc/shared.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
-      rel="stylesheet"
-    />
-    <style>
-      mwc-textfield {
-        min-width: 240px;
-      }
 
-      .shaped-filled {
-        --mdc-text-field-filled-border-radius: 32px 32px 0 0;
-      }
+<head>
+  <title>MWC Textfield Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css" />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style"
+    type="text/css" />
+  <script type="module" src="./index.js"></script>
+  <script nomodule src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script nomodule src="index.es5.js"></script>
+  <style>
+    .unresolved main {
+      opacity: 0;
+    }
+  </style>
+  <link href="../../shared/doc/shared.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet" />
+  <style>
+    mwc-textfield {
+      min-width: 240px;
+    }
 
-      .shaped-outlined {
-        --mdc-notched-outline-leading-width: 28px;
-        --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
-        --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
-      }
+    .shaped-filled {
+      --mdc-text-field-filled-border-radius: 32px 32px 0 0;
+    }
 
-      mwc-textarea {
-        min-width: 250px;
-      }
+    .shaped-outlined {
+      --mdc-notched-outline-leading-width: 28px;
+      --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
+      --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
+    }
 
-      .demo-group-spaced {
-        flex-wrap: wrap;
-      }
+    mwc-textarea {
+      min-width: 250px;
+    }
 
-      .medium {
-        max-width: 100px;
-      }
+    .demo-group-spaced {
+      flex-wrap: wrap;
+    }
 
-      .divider {
-        margin: 30px auto;
-        width: 70%;
-        justify-content: center;
-      }
+    .medium {
+      max-width: 100px;
+    }
 
-      .demo-group-spaced > *,
-      [fullwidth] {
-        margin-top: 8px;
-      }
-    </style>
-  </head>
-  <body class="unresolved">
-    <demo-header component="Textfield" package="textfield"></demo-header>
-    <h2>Linear progress multi valued - Full featured</h2>
-    <aodocs-linear-progress
-      id="progress1"
-      displayDetails="true"
-      total="1000"
-      title="My progress title - Full featured"
-    ></aodocs-linear-progress>
-    <h2>Linear progress multi valued - Without total</h2>
-    <aodocs-linear-progress
-      id="progress2"
-      displayDetails="true"
-      total="1000"
-      title="My progress title"
-    ></aodocs-linear-progress>
-    <h2>Linear progress multi valued - Without details</h2>
-    <aodocs-linear-progress
-      id="progress3"
-      total="1000"
-      title="My progress title - without details"
-    ></aodocs-linear-progress>
-    <hr class="divider" />
-    <h2>Linear progress thin</h2>
-    <aodocs-linear-progress
-      id="progress4"
-      height="2px"
-      total="1000"
-    ></aodocs-linear-progress>
-    <hr class="divider" />
-    <h2>Linear progress with min width value</h2>
-    <aodocs-linear-progress 
-      minWidth="15px" 
-      id="progress5" 
-      displayDetails="true" 
-      total="1000">
-    </aodocs-linear-progress>
-    <hr class="divider" />
-  </body>
+    .divider {
+      margin: 30px auto;
+      width: 70%;
+      justify-content: center;
+    }
+
+    .demo-group-spaced>*,
+    [fullwidth] {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body class="unresolved">
+  <demo-header component="Textfield" package="textfield"></demo-header>
+  <h2>Linear progress multi valued - Full featured</h2>
+  <aodocs-linear-progress id="progress1" displayDetails="true" total="1000" title="My progress title - Full featured">
+  </aodocs-linear-progress>
+  <h2>Linear progress multi valued - Without total</h2>
+  <aodocs-linear-progress id="progress2" displayDetails="true" total="1000" title="My progress title">
+  </aodocs-linear-progress>
+  <h2>Linear progress multi valued - Without details</h2>
+  <aodocs-linear-progress id="progress3" total="1000" title="My progress title - without details">
+  </aodocs-linear-progress>
+  <hr class="divider" />
+  <h2>Linear progress thin</h2>
+  <aodocs-linear-progress id="progress4" height="2px" total="1000"></aodocs-linear-progress>
+  <hr class="divider" />
+  <h2>Linear progress with min width value</h2>
+  <aodocs-linear-progress minWidth="15px" id="progress5" displayDetails="true" total="1000">
+  </aodocs-linear-progress>
+  <hr class="divider" />
+  <h2>Linear progress with min width value</h2>
+  <aodocs-linear-progress id="progress6" onlyDetails="true" total="1000">
+  </aodocs-linear-progress>
+</body>
+
 </html>
