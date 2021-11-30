@@ -1,6 +1,6 @@
 {
   "name": "@backlight-dev/aodocs.aodocs-design-system",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "dependencies": {
     "@material/mwc-base": "latest",
     "@material/mwc-button": "latest",
