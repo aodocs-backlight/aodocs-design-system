@@ -26,6 +26,9 @@ export class LinearProgress extends LitElement {
   public displayDetails = false;
 
   @property({ type: Boolean })
+  public onlyDetails = false;
+
+  @property({ type: Boolean })
   public displayTotal = true;
 
   @property({ type: String })
@@ -52,12 +55,17 @@ export class LinearProgress extends LitElement {
   protected override render(): TemplateResult {
     return html`
       ${this._displayTitle()}
-      <div class="flex" style="height: ${this.height}; width: ${this.width};">
-        ${this._renderParts()}
-      </div>
+      ${this._renderBar()}
       ${this._displayDetails()}
     `;
   }
+private _renderBar(): unknown {
+  return this.onlyDetails ? html`` : html`
+    <div class="flex" style="height: ${this.height}; width: ${this.width};">
+      ${this._renderParts()}
+    </div>
+  `;
+}
 
   private _displayTitle(): TemplateResult {
     return this.displayDetails && !!this.title
@@ -70,9 +78,9 @@ export class LinearProgress extends LitElement {
   }
 
   private _displayDetails(): TemplateResult {
-    return this.displayDetails
+    return (this.displayDetails || this.onlyDetails)
       ? html`
-          <div class="flex justify-space-between pr-6--rem">
+          <div class="flex justify-space-between ${this.onlyDetails ? '' : 'pr-6--rem'}">
             ${this._renderDetailParts()} ${this._renderDetailTotal()}
           </div>
         `

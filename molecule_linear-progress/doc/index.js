@@ -7,6 +7,7 @@ let linearEl2 = null;
 let linearEl3 = null;
 let linearEl4 = null;
 let linearEl5 = null; 
+let linearEl6 = null; 
 let count = 0;
 addEventListener('load', function () {
   document.body.classList.remove('unresolved');
@@ -15,6 +16,7 @@ addEventListener('load', function () {
   linearEl3 = document.querySelector('#progress3');
   linearEl4 = document.querySelector('#progress4');
   linearEl5 = document.querySelector('#progress5');
+  linearEl6 = document.querySelector('#progress6');
 
   linearEl2.displayTotal = false;
 
@@ -67,6 +69,7 @@ addEventListener('load', function () {
   linearEl3.config = config;
   linearEl4.config = config;
   linearEl5.config = config2;
+  linearEl6.config = config2;
 
   setInterval(() => {
     count++;
