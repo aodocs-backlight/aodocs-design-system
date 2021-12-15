@@ -47,7 +47,7 @@
   },
   "scripts": {
     "lint": "eslint . && prettier --config .prettierrc.json --check .",
-    "prepare": "husky install"
+    "prepublish": "husky install"
   },
   "lint-staged": {
     "*.(js|ts|html|css|json)": [
