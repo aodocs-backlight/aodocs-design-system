@@ -16,124 +16,90 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <html lang="en">
-  <head>
-    <title>MWC Textfield Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-      as="style"
-      type="text/css"
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
-      as="style"
-      type="text/css"
-    />
-    <script type="module" src="./index.js"></script>
-    <script
-      nomodule
-      src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"
-    ></script>
-    <script nomodule src="index.es5.js"></script>
-    <style>
-      .unresolved main {
-        opacity: 0;
-      }
-    </style>
-    <link href="../../shared/doc/shared.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
-      rel="stylesheet"
-    />
-    <style>
-      mwc-textfield {
-        min-width: 240px;
-      }
 
-      .shaped-filled {
-        --mdc-text-field-filled-border-radius: 32px 32px 0 0;
-      }
+<head>
+  <title>MWC Textfield Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css" />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style"
+    type="text/css" />
+  <script type="module" src="./index.js"></script>
+  <script nomodule src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script nomodule src="index.es5.js"></script>
+  <style>
+    .unresolved main {
+      opacity: 0;
+    }
+  </style>
+  <link href="../../shared/doc/shared.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet" />
+  <style>
+    mwc-textfield {
+      min-width: 240px;
+    }
 
-      .shaped-outlined {
-        --mdc-notched-outline-leading-width: 28px;
-        --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
-        --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
-      }
+    .shaped-filled {
+      --mdc-text-field-filled-border-radius: 32px 32px 0 0;
+    }
 
-      mwc-textarea {
-        min-width: 250px;
-      }
+    .shaped-outlined {
+      --mdc-notched-outline-leading-width: 28px;
+      --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
+      --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
+    }
 
-      .demo-group-spaced {
-        flex-wrap: wrap;
-      }
+    mwc-textarea {
+      min-width: 250px;
+    }
 
-      .medium {
-        max-width: 100px;
-      }
+    .demo-group-spaced {
+      flex-wrap: wrap;
+    }
 
-      .divider {
-        margin: 30px auto;
-        width: 70%;
-        justify-content: center;
-      }
+    .medium {
+      max-width: 100px;
+    }
 
-      .demo-group-spaced > *,
-      [fullwidth] {
-        margin-top: 8px;
-      }
-    </style>
-  </head>
+    .divider {
+      margin: 30px auto;
+      width: 70%;
+      justify-content: center;
+    }
 
-  <body class="unresolved">
-    <demo-header component="Textfield" package="textfield"></demo-header>
-    <h2>Auto complete with text list</h2>
-    <p>
-      String value selected:
-      <span id="stringValue"></span>
-    </p>
-    <aodocs-auto-complete
-      id="my-auto-complete-string"
-      label="Auto Complete String"
-      class="medium"
-    ></aodocs-auto-complete>
-    <hr class="divider" />
-    <h2>Auto complete with objects list</h2>
-    <p>
-      Object value selected:
-      <span id="objectValue"></span>
-    </p>
-    <aodocs-auto-complete
-      id="my-auto-complete-object"
-      label="Auto Complete Object"
-      displayName="name"
-      returnObject="true"
-      minChar="4"
-      class="medium"
-    ></aodocs-auto-complete>
-    <hr class="divider" />
-    <h2>Auto complete with no data</h2>
-    <aodocs-auto-complete
-      id="my-auto-complete-no-data"
-      label="Auto Complete No Data"
-      minChar=""
-      class="medium"
-    ></aodocs-auto-complete>
-    <hr class="divider" />
-    <h2>Auto complete with with loader</h2>
-    <aodocs-auto-complete
-      id="my-auto-complete-loading"
-      label="Auto Complete Loading"
-      class="medium"
-      loading
-    ></aodocs-auto-complete>
-    <hr class="divider" />
-  </body>
+    .demo-group-spaced>*,
+    [fullwidth] {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body class="unresolved">
+  <demo-header component="Textfield" package="textfield"></demo-header>
+  <h2>Auto complete with text list</h2>
+  <p>
+    String value selected:
+    <span id="stringValue"></span>
+  </p>
+  <aodocs-auto-complete id="my-auto-complete-string" label="Auto Complete String" class="medium"></aodocs-auto-complete>
+  <hr class="divider" />
+  <h2>Auto complete with objects list</h2>
+  <p>
+    Object value selected:
+    <span id="objectValue"></span>
+  </p>
+  <aodocs-auto-complete id="my-auto-complete-object" label="Auto Complete Object" displayName="name" returnObject="true"
+    minChar="4" class="medium"></aodocs-auto-complete>
+  <hr class="divider" />
+  <h2>Auto complete with no data</h2>
+  <aodocs-auto-complete id="my-auto-complete-no-data" label="Auto Complete No Data" minChar="" class="medium">
+  </aodocs-auto-complete>
+  <hr class="divider" />
+  <h2>Auto complete with with loader</h2>
+  <aodocs-auto-complete id="my-auto-complete-loading" label="Auto Complete Loading" class="medium" loading>
+  </aodocs-auto-complete>
+  <hr class="divider" />
+</body>
+
 </html>
