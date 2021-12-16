@@ -28,6 +28,16 @@
   --aodocs-theme-text: rgba(0, 0, 0, 0.87);
   --aodocs-theme-grey-strokes: rgba(0, 0, 0, 0.12);
 
+  /* Background */
+  --aodocs-theme-background-base: #EDEDED;
+  --aodocs-theme-blue-background-base-light: #f5f5f5;
+  --aodocs-theme-blue-background-hover-lighten1:  rgba(0,0,0,0.05);
+  --aodocs-theme-blue-background-hover-lighten2:  rgba(0,0,0,0.08);
+  --aodocs-theme-blue-background-blue: #ECF2FE;
+  --aodocs-theme-blue-background-orange: #FFEBB5;
+  --aodocs-theme-blue-background-red: #FCDDDD;
+  --aodocs-theme-blue-background-dark-grey: #323232;
+
   /* White */
   --mdc-theme-white: #ffffff;
 }
