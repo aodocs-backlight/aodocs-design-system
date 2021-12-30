@@ -7,7 +7,8 @@ export enum color {
 }
 
 export enum textColor {
-  SUBTITLE1 = 'SUBTITLE1'
+  SUBTITLE1 = 'SUBTITLE1',
+  WHITE = 'WHITE',
 }
 
 const colorMap = {
@@ -17,7 +18,8 @@ const colorMap = {
 };
 
 const textColorMap = {
-  [textColor.SUBTITLE1]: '--mdc-typography-subtitle1-color'
+  [textColor.SUBTITLE1]: '--mdc-typography-subtitle1-color',
+  [textColor.WHITE]: '--mdc-theme-white'
 };
 
 export const bgcColorMixin = (value: color): CSSResult => {

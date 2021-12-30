@@ -32,3 +32,9 @@ export const spaceBetween = css`
     justify-content: space-between;
   }
 `;
+
+export const alignCenter = css`
+  .align-center {
+    align-items: center;
+  }
+`;

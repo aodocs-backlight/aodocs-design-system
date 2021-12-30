@@ -1,6 +1,7 @@
 import { CSSResult, css } from 'lit';
 
 const remTokens = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+const pxTokens = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 ,30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40];
 
 function computePaddingsRem(): CSSResult[] {
   const paddings: CSSResult[] = [];
@@ -92,5 +93,97 @@ function computeMarginsRem(): CSSResult[] {
   return margins;
 }
 
+function computePaddingsPx(): CSSResult[] {
+  const paddings: CSSResult[] = [];
+  for (const px of pxTokens) {
+    paddings.push(css`
+      .pa-${px}--px {
+        padding: ${px}px;
+      }
+    `);
+    paddings.push(css`
+      .pt-${px}--px {
+        padding-top: ${px}px;
+      }
+    `);
+    paddings.push(css`
+      .pb-${px}--px {
+        padding-bottom: ${px}px;
+      }
+    `);
+    paddings.push(css`
+      .pl-${px}--px {
+        padding-left: ${px}px;
+      }
+    `);
+    paddings.push(css`
+      .pr-${px}--px {
+        padding-right: ${px}px;
+      }
+    `);
+    paddings.push(css`
+      .px-${px}--rem {
+        padding-right: ${px}px;
+        padding-left: ${px}px;
+      }
+    `);
+    paddings.push(css`
+      .py-${px}--px {
+        padding-top: ${px}px;
+        padding-bottom: ${px}px;
+      }
+    `);
+  }
+  return paddings;
+}
+
+function computeMarginsPx(): CSSResult[] {
+  const margins: CSSResult[] = [];
+  for (const px of pxTokens) {
+    // Margins
+    margins.push(css`
+      .ma-${px}--px {
+        margin: ${px}px;
+      }
+    `);
+    margins.push(css`
+      .mt-${px}--px {
+        margin-top: ${px}px;
+      }
+    `);
+    margins.push(css`
+      .mb-${px}--px {
+        margin-bottom: ${px}px;
+      }
+    `);
+    margins.push(css`
+      .ml-${px}--px {
+        margin-left: ${px}px;
+      }
+    `);
+    margins.push(css`
+      .mr-${px}--px {
+        margin-right: ${px}px;
+      }
+    `);
+    margins.push(css`
+      .mx-${px}--px {
+        margin-right: ${px}px;
+        margin-left: ${px}px;
+      }
+    `);
+    margins.push(css`
+      .my-${px}--px {
+        margin-top: ${px}px;
+        margin-bottom: ${px}px;
+      }
+    `);
+  }
+
+  return margins;
+}
+
 export const marginsRem = computeMarginsRem();
 export const paddingsRem = computePaddingsRem();
+export const marginsPx = computeMarginsPx();
+export const paddingsPx = computePaddingsPx();
