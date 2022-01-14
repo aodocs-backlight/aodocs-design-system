@@ -65,6 +65,22 @@ limitations under the License.
         Secondary
       </mwc-button>
     </aodocs-dialog>
+    <h3>Dialog with default trigger action slot - Without content padding</h3>
+    <aodocs-dialog class="flex" removeContentPadding="true">
+      <div>
+        <p>This is an AODocs Dialig with a default trigger action button.</p>
+        <p>
+          This component is a forward of MWC Dialog, so you can use the exact sames
+          features / events / properties
+        </p>
+      </div>
+      <mwc-button slot="primaryAction" dialogAction="close">
+        Primary
+      </mwc-button>
+      <mwc-button slot="secondaryAction" dialogAction="close">
+        Secondary
+      </mwc-button>
+    </aodocs-dialog>
     <h3>Empty dialog</h3>
     <aodocs-dialog class="flex">
     </aodocs-dialog>
