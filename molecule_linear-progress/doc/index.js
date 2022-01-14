@@ -64,7 +64,14 @@ addEventListener('load', function () {
       title: 'Pending'
     }
   ];
-  linearEl.config = config;
+  let config3 = [
+    {
+      color: 'var(--aodocs-theme-light-green)',
+      value: 1,
+      title: 'Finished'
+    }
+  ];
+  linearEl.config = config3;
   linearEl2.config = config;
   linearEl3.config = config;
   linearEl4.config = config;
@@ -85,8 +92,8 @@ addEventListener('load', function () {
       config[2].value = 20;
       config[3].value = 770;
     }
-    linearEl.config = [];
-    linearEl.config = config;
+    // linearEl.config = [];
+    // linearEl.config = config;
     linearEl2.config = [];
     linearEl2.config = config;
     linearEl3.config = [];

@@ -22,8 +22,7 @@ limitations under the License.
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css" />
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style"
-    type="text/css" />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons" as="style" type="text/css" />
   <script type="module" src="./index.js"></script>
   <script nomodule src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
   <style>
@@ -33,7 +32,7 @@ limitations under the License.
   </style>
   <link href="../../shared/doc/shared.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" />
   <style>
     body {
       min-height: calc(100vh - 4em);
@@ -46,7 +45,7 @@ limitations under the License.
 
   <main>
     <mwc-button data-num="1" raised>Basic</mwc-button>
-    <aodocs-base-dialog id="dialog1" heading="Dialog header">
+    <aodocs-base-dialog id="dialog1" heading="Dialog header" removeContentPadding="true">
       Dialog body text
       <mwc-button slot="primaryAction" dialogAction="ok">Action 2</mwc-button>
       <mwc-button slot="secondaryAction" dialogAction="cancel">
@@ -70,7 +69,7 @@ limitations under the License.
     </aodocs-base-dialog>
 
     <mwc-button data-num="3" raised>Scrollable</mwc-button>
-    <aodocs-base-dialog id="dialog3" heading="My Title">
+    <aodocs-base-dialog id="dialog3" heading="My Title" removeContentPadding="true">
       <p>
         Really long text will scroll. Really long text will scroll. Really
         long text will scroll. Really long text will scroll. Really long text

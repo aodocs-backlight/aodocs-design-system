@@ -1,5 +1,5 @@
 import { html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import '../../atom_button';
 import { Dialog } from '@material/mwc-dialog';
 import {spaceBetween, flex, alignCenter} from '../../style_positioning';
@@ -20,12 +20,30 @@ export class AodocsBaseDialog extends Dialog {
       .mdc-dialog .aodocs-dialog__container {
         background-color: var(--mdc-theme-primary);
       }
-
       .mdc-dialog .aodocs-dialog__title {
         color: var(--mdc-theme-white);
       }
     `
   ];
+
+  @property({type: Boolean})
+  private removeContentPadding = false;
+
+  protected render() {
+    const styles = [];
+    if (this.removeContentPadding) {
+      styles.push(css`
+      .mdc-dialog .mdc-dialog__content {
+        padding: 0 !important;
+      }
+    `)
+    }
+    const dialog = super.render();
+    return html`
+    <style>${styles}</style>
+    ${dialog}
+    `;
+  }
 
   protected renderHeading() {
     return html`
