@@ -61,7 +61,7 @@ export class LinearProgress extends LitElement {
   }
 private _renderBar(): unknown {
   return this.onlyDetails ? html`` : html`
-    <div class="flex" style="height: ${this.height}; width: ${this.width};">
+    <div class="flex" style="background-color: ${this.backgroundColor}; height: ${this.height}; width: ${this.width};">
       ${this._renderParts()}
     </div>
   `;

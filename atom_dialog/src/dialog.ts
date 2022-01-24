@@ -6,6 +6,7 @@ import {spaceBetween, flex, alignCenter} from '../../style_positioning';
 import '../../atom-icon-button';
 import { textColorMixin, textColor } from '../../style_colors';
 import { paddingsPx } from '../../style_spacing';
+import {borderBoxSizingBorderBox} from '../../style_positioning';
 
 @customElement('aodocs-base-dialog')
 export class AodocsBaseDialog extends Dialog {
@@ -16,6 +17,7 @@ export class AodocsBaseDialog extends Dialog {
     flex,
     alignCenter,
     textColorMixin(textColor.WHITE),
+    borderBoxSizingBorderBox,
     css`
       .mdc-dialog .aodocs-dialog__container {
         background-color: var(--mdc-theme-primary);
@@ -28,6 +30,15 @@ export class AodocsBaseDialog extends Dialog {
 
   @property({type: Boolean})
   private removeContentPadding = false;
+
+  protected getInitialFocusEl(): HTMLElement|null {
+    const initialFocusEl = super.getInitialFocusEl();
+    const contentSlot = this.contentSlot as HTMLSlotElement;
+    contentSlot.classList.add('border-box--box-sizing');
+    console.log('contentSlot.classList: ', contentSlot)
+    console.log('initialFocusEl: ', initialFocusEl)
+    return initialFocusEl;
+  }
 
   protected render() {
     const styles = [];
