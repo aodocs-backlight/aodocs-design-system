@@ -37,7 +37,7 @@ addEventListener('load', function () {
       title: 'Running'
     },
     {
-      color: 'none',
+      color: 'var(--aodocs-theme-grey-strokes)',
       value: 768,
       title: 'Pending'
     }
@@ -59,7 +59,7 @@ addEventListener('load', function () {
       title: 'Running'
     },
     {
-      color: 'none',
+      color: 'var(--aodocs-theme-grey-strokes)',
       value: 999,
       title: 'Pending'
     }
