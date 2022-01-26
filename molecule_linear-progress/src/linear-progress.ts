@@ -137,8 +137,12 @@ private _renderBar(): unknown {
         style="height: ${this.height}; min-width: ${this
           .minWidth}; width: ${this._partWidth(
           part
-        )}%; background-color: ${part.color};"
-      ></div>
+        )}%; background-color: var(--mdc-theme-white);"
+      >
+        <div style="height: 100%; width: 100%%; 
+          background-color: ${part.color};">
+        </div>
+      </div>
     `;
   }
 
