@@ -25,7 +25,7 @@ export class CopyToClipboard extends LitElement {
       opacity: 1;
     }
     .aodocs-copy-to-clipboard__text {
-      color: var(--aodocs-copy-to-clipboard-icon-color, rgba(0, 0, 0, 0.54));
+      color: var(--aodocs-copy-to-clipboard-text-color, rgba(0, 0, 0, 0.54));
     }
     .aodocs-copy-to-clipboard__icon {
       color: var(--aodocs-copy-to-clipboard-icon-color, rgba(0, 0, 0, 0.54));
