@@ -4,7 +4,7 @@ import '../../atom_icon';
 import '../../colors';
 import { CopyToClipboardEvent } from './copy-to-clipboard-event';
 import { marginsRem } from '../../style_spacing';
-import { flexRow } from '../../style_positioning';
+import { flexRow, alignCenter } from '../../style_positioning';
 import '../../typography';
 
 @customElement('aodocs-copy-to-clipboard')
@@ -15,12 +15,9 @@ export class CopyToClipboard extends LitElement {
       --aodocs-copy-to-clipboard-text-color: rgba(0, 0, 0, 0.54);
       --aodocs-copy-to-clipboard-icon-color: rgba(0, 0, 0, 0.54);
     }
-    
-
     .aodocs-copy-to-clipboard:hover {
       cursor: pointer;
     }
-
     .aodocs-copy-to-clipboard:hover .aodocs-copy-to-clipboard__icon--display {
       opacity: 1;
     }
@@ -29,7 +26,7 @@ export class CopyToClipboard extends LitElement {
     }
     .aodocs-copy-to-clipboard__icon {
       color: var(--aodocs-copy-to-clipboard-icon-color, rgba(0, 0, 0, 0.54));
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .aodocs-copy-to-clipboard__icon--display {
       opacity: 0;
@@ -37,6 +34,7 @@ export class CopyToClipboard extends LitElement {
     }
     `,
     flexRow,
+    alignCenter,
     marginsRem
   ];
 
@@ -68,7 +66,7 @@ export class CopyToClipboard extends LitElement {
 
   private _render(): TemplateResult {
     return html`
-      <div class="flex-row mx-05--rem aodocs-copy-to-clipboard" @click=${this.copyToClipboardAndEmit}>
+      <div class="flex-row mx-05--rem aodocs-copy-to-clipboard align-center" @click=${this.copyToClipboardAndEmit}>
       <span class="mr-05--rem aodocs-copy-to-clipboard__text">${this.text}</span>
       <span class="aodocs-copy-to-clipboard__icon--display">
         <slot name="icon">
