@@ -11,13 +11,13 @@ export enum textColor {
   WHITE = 'WHITE',
 }
 
-const colorMap = {
+export const colorMap = {
   [color.PRIMARY]: '--mdc-theme-primary',
   [color.SECONDARY]: '--mdc-theme-secondary',
   [color.WHITE]: '--mdc-theme-white'
 };
 
-const textColorMap = {
+export const textColorMap = {
   [textColor.SUBTITLE1]: '--mdc-typography-subtitle1-color',
   [textColor.WHITE]: '--mdc-theme-white'
 };

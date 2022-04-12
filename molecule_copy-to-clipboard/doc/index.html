@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+@license
+Copyright 2018 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html lang="en">
+
+<head>
+  <title>Molecule Copy To Clipboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css" />
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons" as="style" type="text/css" />
+  <script type="module" src="./index.js"></script>
+  <script nomodule src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script nomodule src="index.es5.js"></script>
+  <style>
+    .unresolved main {
+      opacity: 0;
+    }
+  </style>
+  <link href="../../shared/doc/shared.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" />
+  <style>
+    .shaped-filled {
+      --mdc-text-field-filled-border-radius: 32px 32px 0 0;
+    }
+
+    .shaped-outlined {
+      --mdc-notched-outline-leading-width: 28px;
+      --mdc-notched-outline-leading-border-radius: 28px 0 0 28px;
+      --mdc-notched-outline-trailing-border-radius: 0 28px 28px 0;
+    }
+
+    .demo-group-spaced {
+      flex-wrap: wrap;
+    }
+
+    .medium {
+      max-width: 100px;
+    }
+
+    .flex {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .no-margin {
+      margin: 0;
+    }
+
+    .divider {
+      margin: 30px auto;
+      width: 70%;
+      justify-content: center;
+    }
+
+    .custom-icon {
+      color: pink;
+      font-size: 1.2rem;
+    }
+
+    .demo-group-spaced>*,
+    [fullwidth] {
+      margin-top: 8px;
+    }
+    :host {
+      color: red;
+    }
+  
+  </style>
+</head>
+
+<body class="unresolved">
+  <demo-header component="AODocs Copy To Clipboard" package="aodocs-copy-to-clipboard"></demo-header>
+  <h2>Copy To Clipboard - Simple usage</h2>
+  <aodocs-copy-to-clipboard id="copy1" text="my-text" value="my-value"></aodocs-copy-to-clipboard>
+  <h2>Copy To Clipboard - Use output event</h2>
+  <div class="flex">
+    <aodocs-copy-to-clipboard id="copy2" text="my-text2" value="my-value2"></aodocs-copy-to-clipboard>
+    <span>Text copied: </span>
+    <h4 id="value" class="no-margin"></h4>
+  </div>
+  <h2>Copy To Clipboard - Use output event in snackbar</h2>
+  <aodocs-copy-to-clipboard id="copy3" text="my-text3" value="my-value3"></aodocs-copy-to-clipboard>
+  <mwc-snackbar id="snack" labelText="Text copied: "></mwc-snackbar>
+  <h2>Copy To Clipboard - Use icon slot</h2>
+  <aodocs-copy-to-clipboard id="copy4" text="my-text4" value="my-value4">
+    <mwc-icon slot="icon" class="custom-icon">thumb_up</mwc-icon>
+  </aodocs-copy-to-clipboard>
+</body>
+
+</html>

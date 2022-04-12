@@ -17,7 +17,7 @@ limitations under the License.
 -->
 <html lang="en">
   <head>
-    <title>MWC Snackbar Demo</title>
+    <title>MWC Icon Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
@@ -28,7 +28,7 @@ limitations under the License.
     />
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
       as="style"
       type="text/css"
     />
@@ -37,6 +37,7 @@ limitations under the License.
       nomodule
       src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"
     ></script>
+    <script nomodule src="index.es5.js"></script>
     <style>
       .unresolved main {
         opacity: 0;
@@ -48,50 +49,35 @@ limitations under the License.
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
       rel="stylesheet"
     />
     <style>
-      .demo-group {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-      }
-
-      .demo-group > * {
-        margin: 4px 0;
+      .color-size {
+        color: tomato;
+        --mdc-icon-size: 4em;
       }
     </style>
   </head>
   <body class="unresolved">
-    <demo-header component="Snackbar" package="snackbar"></demo-header>
+    <demo-header component="Icon" package="icon"></demo-header>
 
     <main>
       <div class="demo-group">
-        <mwc-button id="snack1" raised ripple label="DEFAULT"></mwc-button>
-        <mwc-button id="snack2" raised ripple label="LEADING"></mwc-button>
-        <mwc-button id="snack3" raised ripple label="STACKED"></mwc-button>
-        <mwc-textfield
-          id="textfield"
-          label="snackbar timeout (ms)"
-          helper="4000ms - 10000ms or -1"
-          type="number"
-          value="5000"
-        ></mwc-textfield>
+        <mwc-icon>sentiment_very_dissatisfied</mwc-icon>
+        <mwc-icon>sentiment_dissatisfied</mwc-icon>
+        <mwc-icon>sentiment_neutral</mwc-icon>
+        <mwc-icon>sentiment_satisfied</mwc-icon>
+        <mwc-icon>sentiment_very_satisfied</mwc-icon>
       </div>
 
-      <mwc-snackbar
-        id="snack"
-        labelText="Can't send photo. Retry in 5 seconds."
-      >
-        <mwc-button id="actionButton" slot="action">RETRY</mwc-button>
-        <mwc-icon-button
-          id="iconButton"
-          icon="close"
-          slot="dismiss"
-        ></mwc-icon-button>
-      </mwc-snackbar>
+      <h4>color and size</h4>
+      <div class="demo-group color-size">
+        <mwc-icon>all_out</mwc-icon>
+        <mwc-icon>accessibility</mwc-icon>
+        <mwc-icon>exit_to_app</mwc-icon>
+        <mwc-icon>camera</mwc-icon>
+      </div>
     </main>
-    <script nomodule src="index.es5.js"></script>
   </body>
 </html>

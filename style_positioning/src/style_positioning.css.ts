@@ -35,6 +35,13 @@ export const flex = css`
   }
 `;
 
+export const flexRow = css`
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
 export const spaceBetween = css`
   .justify-space-between {
     justify-content: space-between;
