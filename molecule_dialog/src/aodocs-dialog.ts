@@ -22,8 +22,6 @@ export class AodocsDialog extends AodocsBaseDialog {
   protected override render() {
     const dialog = super.render();
     return html`
-      <div style="position: absolute; width: 100%; height: 100%;">
-      </div>
       <slot name="trigger" @click=${this._openDialog}>
         <mwc-button color="primary"  
           unelevated 
