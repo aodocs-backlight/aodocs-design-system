@@ -38,7 +38,7 @@
         "./formfield/*"
       ],
       "@aodocs/icon/*": [
-        "./icon/*"
+        "./atom_icon/*"
       ],
       "@aodocs/icon-button/*": [
         "./atom-icon-button/*"

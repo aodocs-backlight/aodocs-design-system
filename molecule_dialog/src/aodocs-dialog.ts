@@ -6,7 +6,9 @@ import '../../atom_dialog';
 
 @customElement('aodocs-dialog')
 export class AodocsDialog extends AodocsBaseDialog {
-  static override styles = [ ...AodocsBaseDialog.styles ];
+  static override styles = [ 
+    ...AodocsBaseDialog.styles
+  ];
 
   @property({type: Boolean})
   public open = false;
@@ -20,6 +22,8 @@ export class AodocsDialog extends AodocsBaseDialog {
   protected override render() {
     const dialog = super.render();
     return html`
+      <div style="position: absolute; width: 100%; height: 100%;">
+      </div>
       <slot name="trigger" @click=${this._openDialog}>
         <mwc-button color="primary"  
           unelevated 

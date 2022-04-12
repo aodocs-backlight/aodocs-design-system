@@ -1,44 +1,44 @@
-import { CSSResult, css } from 'lit';
+import { CSSResult, css, unsafeCSS } from 'lit';
 
-const remTokens = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+const remTokens = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 const pxTokens = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 ,30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40];
 
 function computePaddingsRem(): CSSResult[] {
   const paddings: CSSResult[] = [];
   for (const rem of remTokens) {
     paddings.push(css`
-      .pa-${rem}--rem {
+      .pa-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding: ${rem}rem;
       }
     `);
     paddings.push(css`
-      .pt-${rem}--rem {
+      .pt-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding-top: ${rem}rem;
       }
     `);
     paddings.push(css`
-      .pb-${rem}--rem {
+      .pb-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding-bottom: ${rem}rem;
       }
     `);
     paddings.push(css`
-      .pl-${rem}--rem {
+      .pl-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding-left: ${rem}rem;
       }
     `);
     paddings.push(css`
-      .pr-${rem}--rem {
+      .pr-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding-right: ${rem}rem;
       }
     `);
     paddings.push(css`
-      .px-${rem}--rem {
+      .px-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding-right: ${rem}rem;
         padding-left: ${rem}rem;
       }
     `);
     paddings.push(css`
-      .py-${rem}--rem {
+      .py-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         padding-top: ${rem}rem;
         padding-bottom: ${rem}rem;
       }
@@ -52,38 +52,38 @@ function computeMarginsRem(): CSSResult[] {
   for (const rem of remTokens) {
     // Margins
     margins.push(css`
-      .ma-${rem}--rem {
+      .ma-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin: ${rem}rem;
       }
     `);
     margins.push(css`
-      .mt-${rem}--rem {
+      .mt-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin-top: ${rem}rem;
       }
     `);
     margins.push(css`
-      .mb-${rem}--rem {
+      .mb-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin-bottom: ${rem}rem;
       }
     `);
     margins.push(css`
-      .ml-${rem}--rem {
+      .ml-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin-left: ${rem}rem;
       }
     `);
     margins.push(css`
-      .mr-${rem}--rem {
+      .mr-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin-right: ${rem}rem;
       }
     `);
     margins.push(css`
-      .mx-${rem}--rem {
+      .mx-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin-right: ${rem}rem;
         margin-left: ${rem}rem;
       }
     `);
     margins.push(css`
-      .my-${rem}--rem {
+      .my-${unsafeCSS(rem.toString().replace('.', ''))}--rem {
         margin-top: ${rem}rem;
         margin-bottom: ${rem}rem;
       }

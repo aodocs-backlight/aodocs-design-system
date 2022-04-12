@@ -25,10 +25,12 @@
         "atoms",
         [
           "atom_base",
+          "atom_icon",
           "atom_button",
           "atom_linear-progress",
           "atom_dialog",
-          "atom-icon-button"
+          "atom-icon-button",
+          "atom_snackbar"
         ]
       ],
       [
@@ -38,7 +40,8 @@
           "molecule_auto-complete",
           "molecule_linear-progress",
           "molecule_aodocs-tooltip",
-          "molecule_dialog"
+          "molecule_dialog",
+          "molecule_copy-to-clipboard"
         ]
       ],
       [
@@ -80,7 +83,6 @@
           "fab",
           "floating-label",
           "formfield",
-          "icon",
           "icon-button-toggle",
           "line-ripple",
           "list",
@@ -90,7 +92,6 @@
           "ripple",
           "select",
           "slider",
-          "snackbar",
           "switch",
           "tab",
           "tab-bar",
