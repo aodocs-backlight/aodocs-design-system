@@ -12,6 +12,14 @@ export const fullWidth = css`
   }
 `;
 
+export const borderBoxSizingBorderBox = css`
+  .border-box--box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+`;
+
 export const zIndexMixin = (value: number) => {
   const className = `.z-index-${value}`;
   return css`

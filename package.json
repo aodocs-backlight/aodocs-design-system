@@ -30,7 +30,7 @@
     "@material/mwc-top-app-bar": "latest",
     "@material/mwc-top-app-bar-fixed": "latest",
     "@material/typography": "latest",
-    "lit": "latest"
+    "lit": "^2.0.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "latest",
