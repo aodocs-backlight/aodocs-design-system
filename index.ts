@@ -1,0 +1,1 @@
+export * from './molecule_copy-to-clipboard';
