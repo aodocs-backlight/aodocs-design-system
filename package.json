@@ -1,6 +1,6 @@
 {
   "name": "@backlight-dev/aodocs.aodocs-design-system",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "AODocs design system - POC",
   "license": "MIT",
   "type": "module",
