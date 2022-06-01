@@ -1,6 +1,9 @@
 {
   "name": "@backlight-dev/aodocs.aodocs-design-system",
   "version": "0.5.3",
+  "description": "AODocs design system - POC",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
     "@material/mwc-base": "latest",
     "@material/mwc-button": "latest",
