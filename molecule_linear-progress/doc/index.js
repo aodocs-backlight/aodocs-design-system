@@ -18,8 +18,6 @@ addEventListener('load', function () {
   linearEl5 = document.querySelector('#progress5');
   linearEl6 = document.querySelector('#progress6');
 
-  linearEl2.displayTotal = false;
-
   let config = [
     {
       color: 'var(--aodocs-theme-light-green)',
