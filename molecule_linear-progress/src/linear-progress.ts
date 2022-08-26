@@ -24,6 +24,9 @@ export class LinearProgress extends LitElement {
     .detail-title-margin-bottom {
       margin-bottom: var(--detail-title-margin-bottom, 0.5rem);
     }
+    .detail-value-font-size {
+      font-size: var(--detail-value-font-size, 1rem);
+    }
     `
   ];
 
@@ -108,7 +111,7 @@ private _renderBar(): unknown {
       ? html`
           <div class="mdc-typography">
             <p class="mdc-typography--subtitle1 text--subtitle1 my-0--rem detail-title-margin-bottom">Total</p>
-            <p class="mdc-typography--headline5 text--subtitle1 my-0--rem">
+            <p class="mdc-typography--headline5 text--subtitle1 detail-value-font-size my-0--rem">
               ${this._getValue(this.total)}
             </p>
           </div>
@@ -122,7 +125,7 @@ private _renderBar(): unknown {
         <p class="mdc-typography--subtitle1 text--subtitle1 my-0--rem detail-title-margin-bottom">
           ${part.title ?? 'No title'}
         </p>
-        <p class="mdc-typography--headline5 my-0--rem" style="color: ${part.color}">
+        <p class="mdc-typography--headline5 my-0--rem detail-value-font-size" style="color: ${part.color}">
           ${this._getValue(part.value)}
         </p>
       </div>
