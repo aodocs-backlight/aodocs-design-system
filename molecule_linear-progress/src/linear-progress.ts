@@ -1,11 +1,10 @@
-import { LitElement, TemplateResult, html } from 'lit';
+import { LitElement, TemplateResult, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
 import '../../colors';
 import '../../molecule_auto-complete';
 import { textColor, textColorMixin } from '../../style_colors';
 import { flex, spaceBetween } from '../../style_positioning';
-import { paddingsRem } from '../../style_spacing';
+import { paddingsRem, marginsRem } from '../../style_spacing';
 import { smoothWidthTransition } from '../../style_transitions';
 import { typography } from '../../style_typography';
 import '../../typography';
@@ -16,10 +15,16 @@ export class LinearProgress extends LitElement {
   static styles = [
     textColorMixin(textColor.SUBTITLE1),
     paddingsRem,
+    marginsRem,
     spaceBetween,
     typography,
     smoothWidthTransition,
-    flex
+    flex,
+    css`
+    .detail-title-margin-bottom {
+      margin-bottom: var(--detail-title-margin-bottom, 0.5rem);
+    }
+    `
   ];
 
   @property({ type: Boolean })
@@ -29,7 +34,7 @@ export class LinearProgress extends LitElement {
   public onlyDetails = false;
 
   @property({ type: Boolean })
-  public displayTotal = true;
+  public displayTotal = false;
 
   @property({ type: String })
   public title = '';
@@ -99,8 +104,8 @@ private _renderBar(): unknown {
     return this.displayTotal
       ? html`
           <div class="mdc-typography">
-            <p class="mdc-typography--subtitle1 text--subtitle1">Total</p>
-            <p class="mdc-typography--headline5 text--subtitle1">
+            <p class="mdc-typography--subtitle1 text--subtitle1 my-0--rem detail-title-margin-bottom">Total</p>
+            <p class="mdc-typography--headline5 text--subtitle1 my-0--rem">
               ${this.total}
             </p>
           </div>
@@ -111,10 +116,10 @@ private _renderBar(): unknown {
   private _renderDetailPart(part: Config): TemplateResult {
     return html`
       <div class="mdc-typography">
-        <p class="mdc-typography--subtitle1 text--subtitle1">
+        <p class="mdc-typography--subtitle1 text--subtitle1 my-0--rem detail-title-margin-bottom">
           ${part.title ?? 'No title'}
         </p>
-        <p class="mdc-typography--headline5" style="color: ${part.color}">
+        <p class="mdc-typography--headline5 my-0--rem" style="color: ${part.color}">
           ${part.value}
         </p>
       </div>
