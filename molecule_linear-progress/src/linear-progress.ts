@@ -30,6 +30,9 @@ export class LinearProgress extends LitElement {
   @property({ type: Boolean })
   public displayDetails = false;
 
+  @property({ type: String })
+  public replaceZeroWith: string = null;
+
   @property({ type: Boolean })
   public onlyDetails = false;
 
@@ -106,7 +109,7 @@ private _renderBar(): unknown {
           <div class="mdc-typography">
             <p class="mdc-typography--subtitle1 text--subtitle1 my-0--rem detail-title-margin-bottom">Total</p>
             <p class="mdc-typography--headline5 text--subtitle1 my-0--rem">
-              ${this.total}
+              ${this._getValue(this.total)}
             </p>
           </div>
         `
@@ -120,10 +123,14 @@ private _renderBar(): unknown {
           ${part.title ?? 'No title'}
         </p>
         <p class="mdc-typography--headline5 my-0--rem" style="color: ${part.color}">
-          ${part.value}
+          ${this._getValue(part.value)}
         </p>
       </div>
     `;
+  }
+
+  private _getValue(value: number): string {
+    return value === 0 && this.replaceZeroWith !== null ? this.replaceZeroWith : `${value}`;
   }
 
   private _renderParts(): TemplateResult[] {
